@@ -1,0 +1,55 @@
+%! TEX root = ../main.tex
+
+\begin{abstract}
+在本项目中，实验目的是使用平行指夹具控制工具在重力作用下按照规定的轨迹达到目标位置。
+本文从运动过程中系统的物理学模型、对应的控制方法、实验方案、
+仿真实验设计和具体实验操作等方面展开，
+研究并验证单自由度机械手利用重力实现在手操作的实现方法。
+
+我们从理论角度分析了工具运动过程中的物理现象，
+假设摩擦模型仅包含库伦摩擦力和粘滞摩擦力，在此基础上建立起动力学模型。
+我们参照非线性控制中的模型参考自适应控制系统建立了控制模型，
+并阐述了其基本原理和作用，推导了系统的控制方程和调参律。
+从实验的角度再次分析该问题，
+我们设计了可实践的伺服控制算法和基于改良 PD 控制策略的力控算法，
+并通过实验验证其合理性。
+最后使用 MATLAB/Simulik 的多体动力学模块进行了仿真实验，
+实验结果表明使用模型参考自适应控制后，在部分物理参数如工具质量、
+摩擦系数等未知的情况下，该控制系统仍然能正常运行，
+工具能在重力作用下依照指定的轨迹运动到期望位置。
+
+本文的研究结果意味着，通过使用合适的控制策略，
+结构简单、抓取方式单一的平行指夹具也可以实现复杂的在手操作动作，
+其在实际生产线上可以有更广阔的应用范围。
+
+\keyword{在手操作；非线性控制；模型参考自适应控制；改良PD控制算法；伺服控制；多体动力学仿真}
+\end{abstract}
+
+\begin{enabstract}
+In this project, the robot with a parallel gripper holds the tool with a pinch grasp.
+In this work, we study and verfy how a rather simple gripper can still perfom in-hand-manipulations via making full using of gravity.
+We show these in various ways, such as the mechanical modeling,
+design of controll algorithm, scheduling experiment, simulation, and so on.
+
+The grasp only affords friction against gravity,
+such that tool can slides as planning by suitable control the grasp force.
+From a theoretical point, we analyse the physical phenomenon in processing this action.
+We then formulate the sliding dynamics,
+by modeling the friction as Coulomb and viscous friction.
+We model the control system and formulate the standard adaptive control law,
+refering to the nonlinear control system.
+Experimentally, we design a practical servo-control algorithm and
+modified PD control algorithm, which are verified in experiment.
+At last, we simulate in Simscape multibody,
+which is one simulation block of MATLAB/Simulink.
+The experimental results show, the proposed adaptation law can
+compensate for parametric error to some extent, and manage to slide the tool.
+
+The results of this study mean that even a rather simple gripper can still perfom in- hand-manipulations,
+when the control scheme is designed appropriately.
+By this way, gripper with single degree of freedom can have wider applications in the future.
+
+\enkeyword{In-hand manipulation, Nonlinear control, Adaptive control,  \par
+Improved PD control algorithm, Servo control, Simscape Multibody}
+\end{enabstract}
+
