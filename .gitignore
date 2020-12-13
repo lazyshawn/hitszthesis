@@ -4,6 +4,9 @@
 # ===== But these
 !/.gitignore
 
+# 编译脚本
+!/*.sh
+
 # 根目录
 !/*.tex
 !/*.md
