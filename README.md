@@ -3,6 +3,8 @@
 This project is a dissertation template for masters 
 in Harbin Institute of Technology, ShenZhen (HITSZ).
 
+You can check the demo at [pics/demo\_x.png](
+https://github.com/lazyshawn/hitszthesis_master/tree/master/pics).
 
 ## Documentation
 Here is the structure of this project:
@@ -16,6 +18,7 @@ Here is the structure of this project:
 │
 ├─ pics                       % 存放图片
 │  └─ ...                     
+│
 ├─ appendix                   % 附录
 │  └─ ...                     
 │
@@ -35,7 +38,7 @@ Here is the structure of this project:
 
 
 ## Tex
-Files under `style` is the class file, **do not** edit or delete them. 
+Files under `style` is the class file, **do not** delete or edit them. 
 
 Modify `preamble.tex`, and write your information at first.
 Under the root directory, `mian.tex` is the main function for the template,
