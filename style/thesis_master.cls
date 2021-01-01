@@ -597,7 +597,7 @@
 }
 \newcommand{\para}[2]{%
   % 先建盒子再换行会产生badbox警告(Underfull \box)
-  \par\makebox[1em]{\hfill{}#1} --- #2
+  \par\makebox[1em][c]{#1} --- #2
 }
 
 
@@ -643,6 +643,13 @@
 % https://www.latexstudio.net/archives/8652.html
 \DeclareCaptionFont{song}{\song}
 \DeclareCaptionFont{wuhao}{\zihao{5}}
+
+% 浮动体的间距控制
+% 文本行之间的浮动体与上下文之间的间距
+\setlength{\intextsep}{8.5bp \@plus 2.8bp \@minus 2bp}
+% 版心顶部或底部浮动体之间的垂直距离
+\setlength{\textfloatsep}{8.5bp \@plus 2.8bp \@minus 2bp}
+\setlength{\floatsep}{12bp \@plus 2.8bp \@minus 4bp}
 
 % ----- 图
 % 如果图片没有指定后缀, 依次按下列顺序搜索
