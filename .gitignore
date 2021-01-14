@@ -15,14 +15,3 @@
 !/style/
 !/style/*
 
-
-# 正文部分
-!/main/
-!/main/*.tex
-!/appendix/
-!/appendix/*.tex
-!/pics/
-!/pics/*
-!/refs/
-!/refs/*.bib
-

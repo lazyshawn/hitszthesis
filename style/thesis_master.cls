@@ -651,6 +651,10 @@
 \setlength{\textfloatsep}{8.5bp \@plus 2.8bp \@minus 2bp}
 \setlength{\floatsep}{12bp \@plus 2.8bp \@minus 4bp}
 
+% Caption 间距
+\setlength{\abovecaptionskip}{8pt}
+\setlength{\belowcaptionskip}{8pt}
+
 % ----- 图
 % 如果图片没有指定后缀, 依次按下列顺序搜索
 \DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}

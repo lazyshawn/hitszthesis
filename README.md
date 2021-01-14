@@ -4,17 +4,58 @@ This project is a dissertation template for masters
 in Harbin Institute of Technology, ShenZhen (HITSZ).
 
 You can check the demo at [pics/demo\_x.png](
-https://github.com/lazyshawn/hitszthesis_master/tree/master/pics).
+https://github.com/lazyshawn/hitszthesis_master/tree/master/demo/pics).
+
+## Usage
+1. Download repository.
+```shell
+git clone https://github.com/lazyshawn/hitszthesis_master.git
+```
+
+2. Load demo (optional).
+
+These commands will get a copy of a default project in current path,
+which may help you get start.
+```shell
+cd hitszthesis_master
+bash thesis.sh -l
+```
+
+3. Code your tex project.
+
+In the case that you are using the default project,
+you should modify a tex file named `preamble.tex` to fill your information,
+then include all chapters in `main.tex`.
+
+4. Compile / Build.
+
+Compile tex project in one way you are prefer to.
+Optionally, you can use command line to finish it by running:
+```shell
+bash thesis.sh -b
+```
+
+5. Update.
+
+Pull this repository to get update.
+Note that update only change the `style` and `demo` folders,
+will not vanish your previous work.
+Also make sure you are using the `.cls` file under `./style`.
+
 
 ## Documentation
-Here is the structure of this project:
+Here is the structure of this project after loading demo:
 ```git
+│
 ├─ style
 │  ├─ gbt7714.dtx             % 参考文献格式(.dtx)
 │  ├─ gbt7714.bst             % 参考文献格式
 │  ├─ gbt7714.sty             % 参考文献格式宏包
 │  ├─ hitszthesis_master.cls  % 文档类
 │  └─ hitszthesis_master.cfg  % 文档类常量设置
+│
+├─ demo                       % 存放示例文件
+│  └─ ...                     
 │
 ├─ pics                       % 存放图片
 │  └─ ...                     
@@ -31,6 +72,7 @@ Here is the structure of this project:
 │                             
 ├─ main.tex                   % 主函数
 ├─ preamble.tex               % 导言区设置
+├─ demo.sh                    % 加载demo
 ├─ compile.sh                 % 编译
 ├─ clean.sh                   % 清理过程文件
 └─ README.md
@@ -39,13 +81,15 @@ Here is the structure of this project:
 
 ## Tex
 Files under `style` is the class file, **do not** delete or edit them. 
+You need to load this class file in your main.tex,
+using `\documentclass{style/thesis_master}`.
 
 Modify `preamble.tex`, and write your information at first.
 Under the root directory, `mian.tex` is the main function for the template,
 where we organize the whole project.
 You can put your `tex` file under folder `main`,
 adding them in `main.tex`.
-Folder `pics` and `appendix` is used to store your pics and appendixes respectively.
+Folder `pics` and `appendix` is used to store your pics and appendices respectively.
 
 
 ## Code & Compile
@@ -58,9 +102,23 @@ There is a simple script `compile.sh`.
 If your are not familiar with `xelatex`,
 running the following commands may help:
 ```bash
-sudo chmod +x compile.sh
-bash compile.sh
+bash thesis.sh -b
 ```
+
+
+## Scripts guide
+A script is offered to make work easier.
+```bash
+bash thesis.sh [option]
+```
+
+| Options                      | Descriptions  |
+| ---                          | ---           |
+| -l / -\-load                 | Load demo     |
+| -b\<main\>/-\-build=\<main\> | Build \<main\>.tex |
+| -c / -\-clean                | Clean         |
+
+
 
 
 ## Features
@@ -74,5 +132,5 @@ Email: 20s053030@stu.hit.edu.cn
 
 ## Todos
 * [ ] Finish the Demo and Manual.
-* [ ] Modify compile scripts.
+* [x] Modify compile scripts.
 
