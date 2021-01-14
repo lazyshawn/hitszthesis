@@ -5,7 +5,7 @@
 !/.gitignore
 
 # 编译脚本
-!/*.sh
+!/thesis.sh
 
 # 根目录
 !/*.tex
@@ -17,4 +17,6 @@
 
 !/demo/
 !/demo/*
+!/demo/*/
+!/demo/*/*
 

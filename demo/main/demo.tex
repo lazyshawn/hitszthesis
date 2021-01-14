@@ -1,0 +1,75 @@
+%! TEX root = ../main.tex
+
+\chapter{常用环境的使用}
+\section{公式}
+牛顿第二定律描述了物体的动量和所受外力之间的关系，
+动量为$p$的质点，在外力$F$的作用下，
+其动量随时间的变化率同该质点所受的外力成正比，并与外力的方向相同。
+牛顿第二定律的数学表述如式(\ref{equ:Newton_2})所示。
+\begin{equation}
+  F_e=\frac{d}{dt}mv;
+  \label{equ:Newton_2}
+\end{equation}
+
+\begin{note}
+  \para{$F_e$}{物体所受合外力（N）；\hfill{}}
+  \para{$m$}{物体质量（kg）；}
+  \para{$v$}{物体运动速度（$\rm{m/s^2}$）。}
+\end{note}
+
+通常，物体质量不随时间变化，因此牛顿第二定律也可表述为$F_e=ma$。
+
+
+\section{插图}
+图\ref{fig:HK}是一个包含四个子图的浮动体。
+图\ref{subfig1-1}$\sim$ \ref{subfig1-3}是三个插入题注的子图，
+而第四个子图不插入题注。
+% 双栏图片宽度一般60~70mm; 单栏图片宽度一般120~150mm
+\begin{figure}[!ht]
+\centering
+  \subfloat[子图1\label{subfig1-1}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
+    % \setcounter{subfigure}{0}  % 子图序号计数器
+  }
+  \hspace{30pt}
+  \subfloat[子图2\label{subfig1-2}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
+  } \\
+  \subfloat[子图3\label{subfig1-3}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
+  }
+  \hspace{30pt}
+  \subfloat{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
+}
+\caption{Hollow Knight\label{fig:HK}}
+\vspace{-0.3cm}
+\end{figure}
+
+
+\section{表格}
+三线表的绘制。很多刊物都明确规定稿件中要使用三线表。三线表在必要时也可添加若干条水平辅助分隔中线。
+\begin{table}[!h]
+\centering
+\caption{序号计数器及其用途\label{tab:2-1}}
+\begin{tabular}{@{}ll@{}}
+\toprule[1pt]
+计数器名   & 用途            \\ \midrule
+chapter    & 章序号计数器    \\
+section    & 节序号计数器    \\
+subsection & 小节序号计数器  \\
+\bottomrule[1pt]
+\end{tabular}
+\end{table}
+
+表\ref{tab:2-1}中列出了常用章节的计数器名称。
+
+\section{列表}
+排序列表
+\begin{enumerate}
+  \item item of the list.
+  \item item of the list.
+  \item item of the list.
+\end{enumerate}
+
+
