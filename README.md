@@ -27,6 +27,10 @@ In the case that you are using the default project,
 you should modify a tex file named `preamble.tex` to fill your information,
 then include all chapters in `main.tex`.
 
+Otherwise, make sure the `style/thesis_master.cls` is set as your documentclass. 
+And informations about your dissertation should be provided by special directives
+(please refer to `demo/preamble.tex`).
+
 4. Compile / Build.
 
 Compile tex project in one way you are prefer to.
@@ -39,7 +43,7 @@ bash thesis.sh -b
 
 Pull this repository to get update.
 Note that update only change the `style` and `demo` folders,
-will not vanish your previous work.
+will **not** vanish your previous work.
 Also make sure you are using the `.cls` file under `./style`.
 
 
@@ -80,15 +84,15 @@ Here is the structure of this project after loading demo:
 
 
 ## Tex
-Files under `style` is the class file, **do not** delete or edit them. 
-You need to load this class file in your main.tex,
+Files under `style` are the class files, **do not** delete or edit them. 
+You need to load the documentclass in your main.tex,
 using `\documentclass{style/thesis_master}`.
 
 Modify `preamble.tex`, and write your information at first.
 Under the root directory, `mian.tex` is the main function for the template,
 where we organize the whole project.
 You can put your `tex` file under folder `main`,
-adding them in `main.tex`.
+including them in `main.tex`.
 Folder `pics` and `appendix` is used to store your pics and appendices respectively.
 
 
@@ -100,23 +104,23 @@ Then run `xelatex` twice to get your final `pdf` file.
 
 There is a simple script `compile.sh`.
 If your are not familiar with `xelatex`,
-running the following commands may help:
+running the following command may help:
 ```bash
 bash thesis.sh -b
 ```
 
 
-## Scripts guide
+## Scripts manual
 A script is offered to make work easier.
 ```bash
 bash thesis.sh [option]
 ```
 
-| Options                      | Descriptions  |
-| ---                          | ---           |
-| -l / -\-load                 | Load demo     |
-| -b\<main\>/-\-build=\<main\> | Build \<main\>.tex |
-| -c / -\-clean                | Clean         |
+| Options                     | Descriptions        |
+| ---                         | ---                 |
+| `-l` / `--load`             | Load demo           |
+| `-b<main>`/`--build=<main>` | Build \<main\>.tex  |
+| `-c` / `--clean`            | Clean process files |
 
 
 

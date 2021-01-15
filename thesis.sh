@@ -3,11 +3,11 @@
 # Function:
 #   提供使用文档类的快捷命令。
 # Usage:
-#   sh thesis.sh [option]
+#   bash thesis.sh [option]
 # Options:
-#   demo  -- 加载示例文件;
-#   build -- 编译Tex工程项目;
-#   clean -- 删除编译过程文件;
+#   -l / --load  : 加载示例文件;
+#   -b / --build : 编译Tex工程项目;
+#   -c / --clean : 删除编译过程文件;
 # Author:
 #   Lazyshawn
 # Contact:
@@ -21,7 +21,7 @@ loadDemo () {
   files=$(ls ./demo)
   echo "===> Begin loading demo ..."
   echo "\$TexProject: $(pwd)"
-  # 遍历demo文件夹下的所有文件
+  # 遍历demo文件夹下的所有文件, 并复制缺少的文件
   for file in ${files}
   do
     if [ -e ./${file} ]; then
@@ -31,10 +31,10 @@ loadDemo () {
       echo "Get copy: ${file}"
     fi
   done
-  echo "===> Finish load demo ..."
+  echo "===> Finish load demo."
 }
 
-# Tex build
+# Tex build: xelatex -> bibtex -> xelatex -> xelatex
 texBuild () {
   echo -e "========== Xelatex No.1 =========="
   xelatex $1.tex
@@ -52,7 +52,8 @@ texBuild () {
 
 # Tex clean
 texClean () {
-  rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.xdv
+  rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.xdv\
+    *.synctex.gz *.fdb_latexmk  *.fls
 }
 
 # Check error
@@ -64,6 +65,7 @@ checkError () {
 }
 
 
+# ====== main ======
 opts=$(getopt -o lb::c -l load,build::,clean -- "$@")
 [ $? != 0 ] && exit 1
 eval set -- "$opts"   # 将$parameters设置为位置参数
