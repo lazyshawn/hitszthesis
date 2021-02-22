@@ -24,6 +24,12 @@
 
 
 %===========================================================================%
+%->> Condition
+%===========================================================================%
+\newif\ifhitsz@midterm\hitsz@midtermfalse
+
+
+%===========================================================================%
 %->> Declare Options
 %===========================================================================%
 \DeclareOption{oneside}{%
@@ -34,6 +40,9 @@
 }
 \DeclareOption{twoside}{%
   \PassOptionsToClass{twoside}{book}%
+}
+\DeclareOption{midterm}{%
+  \hitsz@midtermtrue
 }
 
 % ----- Handle non-implemented options
@@ -102,15 +111,25 @@
   ignoreall,
   nomarginpar,
 }
-\geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
-  text={150true mm,224true mm},
-  top=37.5true mm,
-  left=30true mm,
-  head=5true mm,
-  headsep=3true mm,
-  footskip=8true mm,
-  %foot=8true mm
-}
+\ifhitsz@midterm
+  \geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
+    text={160true mm,242true mm},
+    top=25.5true mm,
+    left=25true mm,
+    head=5true mm,
+    headsep=3true mm,
+    footskip=10true mm,
+  }
+\else
+  \geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
+    text={150true mm,224true mm},
+    top=37.5true mm,
+    left=30true mm,
+    head=5true mm,
+    headsep=3true mm,
+    footskip=8true mm,
+  }
+\fi
 
 
 %===========================================================================%
@@ -208,8 +227,11 @@
 % ----- 正文区格式
 \fancypagestyle{fancy@main}{\fancyhf{}%
   \fancyfoot[C]{\zihao{5} -~\thepage~-}
-  \fancyhead[C]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@thesis}
-  % \fancyhead[OC]{\song\zihao{-5} \leftmark}
+  \ifhitsz@midterm
+    \fancyhead[C]{\song\zihao{-5} \hitsz@info@school （深圳）中期报告}
+  \else
+    \fancyhead[C]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@thesis}
+  \fi
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
   \setlength{\headheight}{20pt}
@@ -262,6 +284,13 @@
     break={},
   }
 }
+% 中期报告章节格式
+\ifhitsz@midterm
+  \ctexset{
+    chapter/name={},
+    chapter/format={\heiti\zihao{-2}},
+  }
+\fi
 
 %===========================================================================%
 %->> Make Cover & Titlepage
@@ -269,9 +298,52 @@
 % Pkg: ulem
 \renewcommand{\maketitle}{%
   \hitsz@pagestyle{fancy@empty}
-  \hitsz@maketitle@cover
-  \hitsz@maketitle@titlepage
-  \hitsz@maketitle@entitlepage
+  \ifhitsz@midterm
+    \hitsz@maketitle@midterm
+  \else{
+    \hitsz@maketitle@cover
+    \hitsz@maketitle@titlepage
+    \hitsz@maketitle@entitlepage
+  }
+  \fi
+}
+
+% ----- 中期报告封面
+\newdimen\infowidth
+\infowidth = 190pt            % 下划线长度
+\setlength{\ULdepth}{4pt}    % 下划线与文字之间的距离
+\newcommand{\hitsz@cmd@uline}[1]{
+  \uline{\makebox[\infowidth][l]{\hspace*{1em}{\textbf{#1}}}}
+}
+
+\newcommand{\hitsz@maketitle@midterm}{%
+  \begin{center}
+  \parbox[t][250pt][t]{\textwidth}{%
+    \begin{center}
+      \vspace{55pt}
+      \makebox[150pt][s]{\zihao{-2}\kai\textbf{哈尔滨工业大学}}
+      \par\vspace{37pt}
+      \makebox[300pt][s]{\zihao{2}\song\textbf{硕士学位论文中期报告}}
+      \par\vspace{30pt}\hspace{-86pt}
+      \zihao{-2}\song
+      \makebox[2.5em][s]{\textbf{题目}}\textbf:\hspace{6pt}
+      \textbf{\hitsz@info@title}\par
+    \end{center}
+  }
+  \end{center}
+  
+  \song\zihao{3}\hspace{5pt}
+  \renewcommand{\arraystretch}{1.37} %表格间距
+  \begin{tabular}{@{\song}r@{ }@{}l@{}}%
+    \textbf{院\hfill{}\makebox[33pt][s]{（系）}} & \hitsz@cmd@uline{机电工程与自动化学院} \\
+     \textbf{学\hfill{}科} & \hitsz@cmd@uline{机械工程} \\
+     \textbf{导\hfill{}师} & \hitsz@cmd@uline{\hitsz@info@teacher 教授} \\
+     \textbf{研\hfill{}究\hfill{}生} & \hitsz@cmd@uline{\hitsz@info@author} \\
+     \textbf{学\hfill{}号} & \hitsz@cmd@uline{\hitsz@info@defensedate} \\
+     \textbf{中期报告日期} & \hitsz@cmd@uline{\hitsz@info@defensedate} \\
+  \end{tabular}
+  \renewcommand{\arraystretch}{1} %表格间距
+  \normalsize
 }
 
 % ----- 封面一
@@ -442,6 +514,9 @@
   \phantomsection    % Pkg: hyperref
   \chapter*{\contentsname}
   \normalsize\@starttoc{toc}
+  \ifhitsz@midterm
+    \hitsz@pagestyle{fancy@empty}
+  \fi
 }
 
 \def\@pnumwidth{1.55em}  % 页码宽度
