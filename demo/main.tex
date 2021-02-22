@@ -8,10 +8,16 @@
 %->> More: https://github.com/lazyshawn/hitszthesis_master.git
 %===========================================================================%
 
+% Options: midterm(中期)
 \documentclass[openany]{style/thesis_master}
 % 导言区设置
 \input{preamble}
-\usepackage{lipsum}  % 随机文本，测试用
+
+% 分段编译: 先整体编译一次生成引用，在分段编译
+% \includeonly{main/introduction}
+
+% 随机文本，测试用
+\usepackage{lipsum}
 
 
 \begin{document}
@@ -22,7 +28,7 @@
   % ===== Front | 书前部分 =====
   \frontmatter
   % --- Abstract / 摘要 ---
-  \input{main/abstract}
+  \include{main/abstract}
   % --- Contents / 目录 ----
   \tableofcontents
 
@@ -30,20 +36,20 @@
   % ===== Main | 正文部分 =====
   \mainmatter
   % --- Main body / 正文 ---
-  \input{main/introduction}
-  \input{main/demo}
-  \input{main/conclusion}
+  \include{main/introduction}
+  \include{main/demo}
+  \include{main/conclusion}
   % --- Reference / 参考文献 ---
   \bibliography{refs/reference}
   % --- Authorization / 原创性声明 ---
   \makeauthorization
   % --- Acknowledgment / 致谢 ---
-  \input{main/acknowledgment}
+  \include{main/acknowledgment}
 
 
   % ===== Appendix | 附录 =====
   \appendix
-  \input{appendix/appendix_1}
+  \include{appendix/appendix_1}
   % \includepdf[pages={1,2}]{appendices/article.pdf}
 \end{document}
 
