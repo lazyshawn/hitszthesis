@@ -187,6 +187,13 @@
   \pagenumbering{arabic}
   \hitsz@pagestyle{fancy@main}
   \ctexset{chapter/number=\arabic{chapter}}
+  % 中期报告章节格式
+  \ifhitsz@midterm
+    \ctexset{
+      chapter/name={},
+      chapter/format={\heiti\zihao{-2}},
+    }
+  \fi
 }
 
 % ----- Appendix
@@ -284,13 +291,6 @@
     break={},
   }
 }
-% 中期报告章节格式
-\ifhitsz@midterm
-  \ctexset{
-    chapter/name={},
-    chapter/format={\heiti\zihao{-2}},
-  }
-\fi
 
 %===========================================================================%
 %->> Make Cover & Titlepage
@@ -527,7 +527,11 @@
   \ifnum \c@tocdepth > \m@ne \relax
     \addpenalty{-\@highpenalty}%
     %\vskip 1em \@plus\p@
-    \setlength\@tempdima{4em} % 序号盒子宽度 (第n章)
+    \ifhitsz@midterm
+      \setlength\@tempdima{1em} % 序号盒子宽度 (n)
+    \else
+      \setlength\@tempdima{4em} % 序号盒子宽度 (第n章)
+    \fi
     \begingroup
       \parindent \z@ \rightskip \@pnumwidth
       \parfillskip -\@pnumwidth
@@ -594,6 +598,8 @@
   \if@openright\hitsz@clearemptydoublepage\else\clearpage\fi
   \phantomsection
   \addcontentsline{toc}{chapter}{\refname}
+  % 中期报告中如果需要则
+  \ctexset{chapter/format={\center\heiti\zihao{-2}}}
 }
 
 % 使用style/gbt7714宏包可默认选择unsrt文献格式
