@@ -90,6 +90,7 @@
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
+\RequirePackage{amsmath}    % 数学公式
 
 % ----- 字体设置(宏包顺序可能导致字体问题)
 \PassOptionsToPackage{quiet}{xeCJK}
