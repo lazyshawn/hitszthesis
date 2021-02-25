@@ -157,6 +157,7 @@
 \renewcommand\frontmatter{%
   \if@openright\hitsz@clearemptydoublepage\else\clearpage\fi
   % \setcounter{secnumdepth}{-1}
+  \hitsz@pagestyle{fancy@main}
   \ctexset{chapter/numbering=false}
   \pagenumbering{Roman}
 }
@@ -250,7 +251,7 @@
   % 页面格式
   \mkChapter
   \hitsz@pagestyle{\csname hitsz@fancy@#1\endcsname}
-  \chapter*{\csname hitsz@cap@#1\endcsname}[\csname hitsz@entoc@#1\endcsname]
+  % \chapter*{\csname hitsz@cap@#1\endcsname}[\csname hitsz@entoc@#1\endcsname]
 }
 
 
@@ -299,6 +300,10 @@
 %->> Abstract ENV
 %===========================================================================%
 % ----- 中文摘要
+\newcommand{\abstract}{
+  \chapter*{\hitsz@cap@abstract}[\hitsz@entoc@abstract]
+  \@mkboth{\MakeUppercase\hitsz@cap@abstract}{}%
+}
 \newcommand\keyword[1]{%
   % 输入参数为所有关键字
   \renewcommand{\hitsz@token@keywords}{#1}
@@ -311,6 +316,10 @@
 }
 
 % ----- 英文摘要
+\newcommand{\enabstract}{
+  \fancyChapter{enabstract}
+  \chapter*{\hitsz@cap@enabstract}[\hitsz@entoc@enabstract]
+}
 \newcommand\enkeyword[1]{%
 	\renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vskip2ex
@@ -364,9 +373,8 @@
 % 控制英文目录：细点\@dottedtocline，粗点\@dottedtoclinebold
   \def\l@chapter{\@dottedtocline{0}{0em}{5em}}
   \@restonecolfalse
-  \chapter*{\hitsz@cap@encontents  %chapter*上移一行，避免在toc中出现。
-  \pdfbookmark[0]{Contents}{econtent}
-    \@mkboth{\hitsz@cap@encontents}{\hitsz@cap@encontents}}
+  \chapter*{\hitsz@cap@encontents}
+  % \pdfbookmark[0]{Contents}{econtent}
   \@starttoc{entoc}%
   \if@restonecol\twocolumn\fi
 }
@@ -409,7 +417,7 @@
     {\hitsz@section{#3}}%
     {\hitsz@section[#2]{#3}}%
     \IfValueT{#4}{%
-%    此处需删除章节的空白
+    % 此处需删除章节的空白
     \addcontentsline{entoc}{section}{%
       \protect\numberline{\csname thesection\endcsname}\ignorespaces #4}
     }
@@ -418,22 +426,17 @@
 % ----- 双语Subsection
 \let\hitsz@subsection\subsection
 \RenewDocumentCommand\subsection{s o m o}{
-  \IfBooleanTF{#1}%
-  {%	if \subsection*
+  \IfBooleanTF{#1}{%	if \subsection*
     \hitsz@subsection*{#3}%
     \IfValueT{#4}{%
       \addcontentsline{entoc}{subsection}{#4}
     }
-  }%
-  {%	if \subsection
+  }{%	if \subsection
     \IfNoValueTF{#2}%
     {\hitsz@subsection{#3}}%
     {\hitsz@subsection[#2]{#3}}%
     \IfValueT{#4}{%
-%    \end{macrocode}
-%
-%    此处需删除章节的空白
-%    \begin{macrocode}
+    % 此处需删除章节的空白
     \addcontentsline{toe}{subsection}{%
       \protect\numberline{\csname thesubsection\endcsname}\ignorespaces #4}
     }

@@ -9,16 +9,15 @@
 %===========================================================================%
 
 % Options: midterm(中期)
-\documentclass[openany]{style/thesis_master}
+\documentclass{style/thesis_doctor}
 % 导言区设置
 \input{preamble}
-
-% 分段编译: 先整体编译一次生成引用，在分段编译
-% \includeonly{main/introduction}
 
 % 随机文本，测试用
 \usepackage{lipsum}
 
+% 分段编译: 先整体编译一次生成引用，在分段编译
+% \includeonly{main/introduction}
 
 \begin{document}
   % ===== Cover | 封面 =====
@@ -31,33 +30,29 @@
   \include{main/abstract}
   % --- Contents / 目录 ----
   \tableofcontents
-
+  \tableofencontents
 
   % ===== Main | 正文部分 =====
   \mainmatter
-  % --- Main body / 正文 ---
+  % --- Main body | 正文 ---
   \include{main/introduction}
   \include{main/demo}
   \include{main/conclusion}
-  % --- Reference / 参考文献 ---
+  % --- Reference | 参考文献 ---
   \bibliography{refs/reference}
-  % --- Authorization / 原创性声明 ---
-  \makeauthorization
-  % --- Acknowledgment / 致谢 ---
+  % --- 发表的论文 | 参考文献 ---
+  \include{main/publication}
+  % --- Authorization | 原创性声明 ---
+  \authorization
+  % --- Acknowledgment | 致谢 ---
   \include{main/acknowledgment}
+  % --- Resume | 个人简历 ---
+  \include{main/resume}
 
 
   % ===== Appendix | 附录 =====
-  \appendix
-  \include{appendix/appendix_1}
+  % \appendix
+  % \input{appendix/appendix_1}
   % \includepdf[pages={1,2}]{appendices/article.pdf}
 \end{document}
-
-!!!!! ------ Common commands: --------!!!!!
-% 只检查语法
-\syntaxonly
-% Only coding these sections
-\includeonly{sections/section-01,appendixes/appendix-01}
-
-!!!!! ------ Note: ------ !!!!!
 
