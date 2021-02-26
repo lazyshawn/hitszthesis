@@ -75,6 +75,7 @@
 \RequirePackage{fancyhdr}   % 页眉页脚
 \RequirePackage{hyperref}   % 超链接
 \RequirePackage{ulem}       % 下划线
+\RequirePackage{fancybox}   % 页面边框
 % \RequirePackage{array}      % 数组宏包，已在其他宏包中引用
 \RequirePackage{enumitem}   % 列表环境
 \RequirePackage{calc}       % 算术宏包
@@ -84,6 +85,10 @@
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath}    % 数学公式
+\RequirePackage{tikzpagenodes}  % 页边框
+\RequirePackage{tikz}       % 绘图宏包
+\usetikzlibrary{calc}       % tikz计算宏包
+
 
 % ----- 字体设置(宏包顺序可能导致字体问题)
 \PassOptionsToPackage{quiet}{xeCJK}
@@ -105,14 +110,25 @@
   ignoreall,
   nomarginpar,
 }
-\geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
-  text={150true mm,224true mm},
-  top=37.5true mm,
-  left=30true mm,
-  head=5true mm,
-  headsep=3true mm,
-  footskip=8true mm,
-}
+\ifhitsz@midterm
+  \geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
+    text={144true mm,238.8true mm},
+    top=27.8true mm,
+    left=33true mm,
+    head=0true mm,
+    headsep=0true mm,
+    footskip=12.6true mm,
+  }
+\else
+  \geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
+    text={150true mm,224true mm},
+    top=37.5true mm,
+    left=30true mm,
+    head=5true mm,
+    headsep=3true mm,
+    footskip=8true mm,
+  }
+\fi
 
 
 %===========================================================================%
@@ -157,18 +173,33 @@
 \renewcommand\frontmatter{%
   \if@openright\hitsz@clearemptydoublepage\else\clearpage\fi
   % \setcounter{secnumdepth}{-1}
-  \hitsz@pagestyle{fancy@main}
+  \ifhitsz@midterm
+    \hitsz@pagestyle{fancy@plain}
+    \hitsz@maketitle@note
+    \pagenumbering{arabic}
+  \else
+    \hitsz@pagestyle{fancy@front}
+    \pagenumbering{Roman}
+  \fi
   \ctexset{chapter/numbering=false}
-  \pagenumbering{Roman}
 }
 
 % ----- Main Domain
 % 开启章节序号计数，重置页码，页码使用阿拉伯数字;
 \renewcommand\mainmatter{%
   \if@openright\cleardoublepage\else\clearpage\fi
+  \ifhitsz@midterm
+    % 页面边框
+    \AddToShipoutPicture{%
+      \begin{tikzpicture}[remember picture,overlay]
+        \draw ($(current page text area.south west)+(-5mm,-5mm)$) rectangle ($(current page text area.north east)+(5mm,2mm)$);
+      \end{tikzpicture}
+    }
+  \else
+    \hitsz@pagestyle{fancy@main}
+    \pagenumbering{arabic}
+  \fi
   \setcounter{secnumdepth}{3}
-  \pagenumbering{arabic}
-  \hitsz@pagestyle{fancy@main}
   \ctexset{
     chapter/number=\arabic{chapter},
     chapter/numbering=true,
@@ -201,6 +232,21 @@
 }
 
 % ----- 书前部分格式
+\fancypagestyle{fancy@plain}{\fancyhf{}%
+  % 清空页眉
+  \let\headrule\hitsz@headrule%
+  \renewcommand{\headrulewidth}{\z@}
+  % 无页脚
+  \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
+}
+\fancypagestyle{fancy@front}{\fancyhf{}%
+  \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
+  \fancyhead[EC]{\song\zihao{-5} \leftmark}
+  \fancyhead[OC]{\song\zihao{-5} \rightmark}
+  \renewcommand{\headrule}{%
+  \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
+  \setlength{\headheight}{20pt}
+}
 \fancypagestyle{fancy@contents}{\fancyhf{}%
   \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
   \fancyhead[OC]{\song\zihao{-5} \hitsz@cap@contents}
@@ -294,6 +340,14 @@
     break={},
   }
 }
+% ----- 中期报告分节
+\newcounter{newpart}
+\setcounter{newpart}{0}
+\newcommand{\newpart}[1]{
+  \stepcounter{newpart}
+  \noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
+  \thenewpart . #1
+}
 
 
 %===========================================================================%
@@ -302,7 +356,7 @@
 % ----- 中文摘要
 \newcommand{\abstract}{
   \chapter*{\hitsz@cap@abstract}[\hitsz@entoc@abstract]
-  \@mkboth{\MakeUppercase\hitsz@cap@abstract}{}%
+  \@mkboth{\MakeUppercase\hitsz@cap@abstract}{\hitsz@cap@abstract}%
 }
 \newcommand\keyword[1]{%
   % 输入参数为所有关键字
@@ -317,8 +371,9 @@
 
 % ----- 英文摘要
 \newcommand{\enabstract}{
-  \fancyChapter{enabstract}
+  % \fancyChapter{enabstract}
   \chapter*{\hitsz@cap@enabstract}[\hitsz@entoc@enabstract]
+  \@mkboth{\hitsz@cap@enabstract}{\hitsz@cap@enabstract}%
 }
 \newcommand\enkeyword[1]{%
 	\renewcommand{\hitsz@token@enkeywords}{#1}
@@ -337,9 +392,10 @@
 % 以章节格式添加目录
 \renewcommand\tableofcontents{%
   \if@openright\cleardoublepage\else\clearpage\fi
-  \hitsz@pagestyle{fancy@contents}
+  % \hitsz@pagestyle{fancy@contents}
   \phantomsection    % 虚拟章节
   \chapter*{\hitsz@cap@contents}
+  \@mkboth{\hitsz@cap@contents}{\hitsz@cap@contents}%
   \normalsize\@starttoc{toc}
 }
 \def\@pnumwidth{1.55em}  % 页码宽度
@@ -374,7 +430,7 @@
   \def\l@chapter{\@dottedtocline{0}{0em}{5em}}
   \@restonecolfalse
   \chapter*{\hitsz@cap@encontents}
-  % \pdfbookmark[0]{Contents}{econtent}
+  \@mkboth{\hitsz@cap@encontents}{\hitsz@cap@encontents}%
   \@starttoc{entoc}%
   \if@restonecol\twocolumn\fi
 }
@@ -387,11 +443,13 @@
 \RenewDocumentCommand{\chapter}{s o m o}{%
   \if@openright\cleardoublepage\else\clearpage\fi
   \IfBooleanTF{#1}{%	if \chapter*
-    \hitsz@chapter*{#3}
-    \IfValueT{#4}{%
+    \IfNoValueTF{#4}{%
+      \hitsz@chapter*{#3}
+      }{
+      \hitsz@chapter*{#3}
       % 此处添加保护选项
-	    \addcontentsline{entoc}{chapter}{\texorpdfstring{\bfseries #4}{#4}}
-	    \addcontentsline{toc}{chapter}{\texorpdfstring{\bfseries #3}{#3}}
+      \addcontentsline{toc}{chapter}{\texorpdfstring{\bfseries #3}{#3}}
+      \addcontentsline{entoc}{chapter}{\texorpdfstring{\bfseries #4}{#4}}
     }
   }{%	if \chapter
     \IfNoValueTF{#2}{\hitsz@chapter{#3}}%
@@ -698,10 +756,83 @@
 % Pkg: ulem
 \renewcommand{\maketitle}{%
   \hitsz@pagestyle{fancy@empty}
-  \hitsz@maketitle@cover
-  \hitsz@maketitle@titlepage
-  \hitsz@maketitle@entitlepage
-  \mbox{}
+  \ifhitsz@midterm
+    \hitsz@maketitle@midterm
+  \else
+    \hitsz@maketitle@cover
+    \hitsz@maketitle@titlepage
+    \hitsz@maketitle@entitlepage
+    \mbox{}
+  \fi
+}
+
+% 下划线
+\newcommand{\hitsz@cmd@duuline}[2]{
+  \uline{\zihao{4}\song
+    \makebox[89pt][s]{\textbf{#1}}
+    \makebox[250pt][l]{\zihao{4}\hspace*{1em}{\textbf{#2}}}
+  }
+  \par\vspace{11.6pt}
+}
+
+% ----- 中期报告封面
+\newcommand{\hitsz@maketitle@midterm}{
+  \begin{center}
+    \parbox[t][6.13cm][t]{\textwidth}{%
+      \centering\vspace{65pt}
+      \zihao{2}\song
+      \makebox[11em][s]{\textbf{\hitsz@info@school \hitsz@token@shenzhen}}\par
+      \vspace{-6pt}
+      \makebox[15em][s]{\textbf{\hitsz@info@thesis 中期检查报告}}\par
+    }
+
+    \vspace{50pt}
+    \hitsz@cmd@duuline{研究生}{\hitsz@info@author}
+    \hitsz@cmd@duuline{入学时间}{}
+    \hitsz@cmd@duuline{论文题目}{\hitsz@info@title}
+    \hitsz@cmd@duuline{}{}
+    \hitsz@cmd@duuline{学科专业}{机械工程与自动化学院}
+    \hitsz@cmd@duuline{中期报告时间}{\hitsz@info@defensedate}
+    \hitsz@cmd@duuline{导师}{\hitsz@info@teacher 教授}
+  \end{center}
+}
+
+\newcommand{\hitsz@cmd@dubox}[2]{
+  \makebox[1em][l]{\zihao{4}#1} 
+  \makebox[30em][s]{\zihao{4}#2}
+}
+% ----- 说明
+\newcommand{\hitsz@maketitle@note}{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  % 设置单页版面，消除盒子警告
+  \newgeometry{
+    text={180true mm,238.8true mm},
+    top=27.8true mm,
+    left=15true mm,
+    head=0true mm,
+    headsep=0true mm,
+    footskip=12.6true mm,
+  }
+  \begin{center}
+    \parbox[t][138pt][t]{\textwidth}{%
+      \centering\song\zihao{3}\vspace{75pt}
+      \textbf{说\hspace{2\ccwd}明}
+    }
+    \song\zihao{4}
+    \renewcommand{\arraystretch}{1.35} %表格间距
+    \begin{tabular}{@{}l@{}}%
+      \makebox[1em][l]{1.} 博士研究生学位论文中期报告一般在入学后的第五学期末完成。\\
+      \hitsz@cmd@dubox{2.}{此报告由学生本人填写，请导师签字后提交一份给检查小组。答} \\
+      \makebox[1em][l]{\hfill{}} 辩结束后由检查组长签署意见。\\
+      \hitsz@cmd@dubox{3.}{报告经中期报告检查组长签字同意后，由学科部保存，以备论文} \\
+      \hitsz@cmd@dubox{\hfill{}}{答辩时参考。研究生院学生培养处将对研究生的学位论文中期报} \\
+      \makebox[1em][l]{\hfill{}} 告进行抽查。\\
+      \makebox[1em][l]{4.} 报告统一用A4纸打印。
+    \end{tabular}
+    \renewcommand{\arraystretch}{1} %表格间距
+  \end{center}
+  % 恢复版面设置
+  \restoregeometry
 }
 
 % ----- 封面一
