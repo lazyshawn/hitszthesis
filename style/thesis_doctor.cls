@@ -788,7 +788,7 @@
 
     \vspace{50pt}
     \hitsz@cmd@duuline{研究生}{\hitsz@info@author}
-    \hitsz@cmd@duuline{入学时间}{}
+    \hitsz@cmd@duuline{入学时间}{\hitsz@info@enrollment}
     \hitsz@cmd@duuline{论文题目}{\hitsz@info@title}
     \hitsz@cmd@duuline{}{}
     \hitsz@cmd@duuline{学科专业}{机械工程与自动化学院}
@@ -798,21 +798,12 @@
 }
 
 \newcommand{\hitsz@cmd@dubox}[2]{
-  \makebox[1em][l]{\zihao{4}#1} 
-  \makebox[30em][s]{\zihao{4}#2}
+  \makebox[17pt][l]{\zihao{4}#1} 
+  \zihao{4}\renewcommand{\CJKglue}{\hskip 0.03mm plus 0.10\baselineskip}#2
 }
 % ----- 说明
 \newcommand{\hitsz@maketitle@note}{
   \if@openright\cleardoublepage\else\clearpage\fi
-  % 设置单页版面，消除盒子警告
-  \newgeometry{
-    text={180true mm,238.8true mm},
-    top=27.8true mm,
-    left=15true mm,
-    head=0true mm,
-    headsep=0true mm,
-    footskip=12.6true mm,
-  }
   \begin{center}
     \parbox[t][138pt][t]{\textwidth}{%
       \centering\song\zihao{3}\vspace{75pt}
@@ -820,19 +811,19 @@
     }
     \song\zihao{4}
     \renewcommand{\arraystretch}{1.35} %表格间距
-    \begin{tabular}{@{}l@{}}%
-      \makebox[1em][l]{1.} 博士研究生学位论文中期报告一般在入学后的第五学期末完成。\\
+    \begin{tabular}{@{\hspace{-3pt}}l@{}}%
+      \hitsz@cmd@dubox{1.}{博士研究生学位论文中期报告一般在入学后的第五学期末完成。} \\
       \hitsz@cmd@dubox{2.}{此报告由学生本人填写，请导师签字后提交一份给检查小组。答} \\
-      \makebox[1em][l]{\hfill{}} 辩结束后由检查组长签署意见。\\
+      \hitsz@cmd@dubox{\hfill{}}{辩结束后由检查组长签署意见。} \\
       \hitsz@cmd@dubox{3.}{报告经中期报告检查组长签字同意后，由学科部保存，以备论文} \\
       \hitsz@cmd@dubox{\hfill{}}{答辩时参考。研究生院学生培养处将对研究生的学位论文中期报} \\
-      \makebox[1em][l]{\hfill{}} 告进行抽查。\\
-      \makebox[1em][l]{4.} 报告统一用A4纸打印。
+      \hitsz@cmd@dubox{\hfill{}}{告进行抽查。} \\
+      \hitsz@cmd@dubox{4.}{报告统一用A4纸打印。}
     \end{tabular}
     \renewcommand{\arraystretch}{1} %表格间距
   \end{center}
   % 恢复版面设置
-  \restoregeometry
+  % \restoregeometry
 }
 
 % ----- 封面一
