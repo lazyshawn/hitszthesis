@@ -515,7 +515,9 @@
     \IfNoValueTF{#2}%
     {\noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
     \vspace{-20pt}\hitsz@section{#3}
-    \setcounter{subsubsubsection}{0}}%
+    \setcounter{subsubsubsection}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}}%
     {\hitsz@section[#2]{#3}}%
     \IfValueT{#4}{%
     % 此处需删除章节的空白
