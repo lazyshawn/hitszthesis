@@ -739,10 +739,14 @@
   {contents/}{pics/}{imgs/}{main/pics/}
   {front/pics/}{appendices/pics/}{back/pics/}
 }
-\renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
+\ifhitsz@midterm
+  \renewcommand*{\thefigure}{\thesection-\arabic{figure}}
+\else
+  \renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
+\fi
 \renewcommand{\figurename}{图}
 \captionsetup[figure]{%
-	format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
+	% format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
 	labelsep=quad, % 分隔符是一个空格
 	font={song,wuhao}, % 图的字体, 宋体小四
 	position=bottom % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
@@ -769,7 +773,7 @@
 % ----- 子图
 \renewcommand*{\thesubfigure}{\ \alph{subfigure})}
 \captionsetup[subfigure]{%
-  format=hang,
+  % format=hang,
   labelformat=simple,
   labelsep=space,
   font={song,wuhao},
@@ -781,10 +785,14 @@
 }
 
 % ----- 表格
+\ifhitsz@midterm
+  \renewcommand*{\thetable}{\thesection-\arabic{table}}
+\else
+  \renewcommand*{\thetable}{\thechapter-\arabic{table}}
+\fi
 \renewcommand{\tablename}{表}
-\renewcommand*{\thetable}{\thechapter-\arabic{table}}
 \captionsetup[table]{%
-	format=hang,
+	% format=hang,
   labelformat=simple,
 	labelsep=quad,
 	font={song,wuhao},
