@@ -34,6 +34,19 @@ loadDemo () {
   echo "===> Finish load demo."
 }
 
+# Save demo
+saveDemo () {
+  files=$(ls ./demo)
+  echo "===> Begin save demo ..."
+  echo "\$TexProject: $(pwd)"
+  for file in ${files}
+  do
+    cp -rf ${file} demo/${file}
+    echo "Get update: ${file}"
+  done
+  echo "===> Demo saved."
+}
+
 # Tex build: xelatex -> bibtex -> xelatex -> xelatex
 texBuild () {
   echo -e "========== Xelatex No.1 =========="
@@ -52,8 +65,9 @@ texBuild () {
 
 # Tex clean
 texClean () {
-  rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.xdv\
+  rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.entoc *.xdv\
     *.synctex.gz *.fdb_latexmk  *.fls
+  rm -rf */*.aux
 }
 
 # Check error
@@ -66,7 +80,7 @@ checkError () {
 
 
 # ====== main ======
-opts=$(getopt -o lb::c -l load,build::,clean -- "$@")
+opts=$(getopt -o lsb::c -l load,save,build::,clean -- "$@")
 [ $? != 0 ] && exit 1
 eval set -- "$opts"   # 将$parameters设置为位置参数
 # 循环解析位置参数
@@ -74,6 +88,8 @@ while [ -n "$1" ]
 do
   case "$1" in
     -l|--load) loadDemo;
+      shift;;
+    -s|--save) saveDemo;
       shift;;
     -b|--build)
       case "$2" in
