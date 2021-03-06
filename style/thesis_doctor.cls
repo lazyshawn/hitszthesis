@@ -259,7 +259,7 @@
 % ----- 正文区格式
 \fancypagestyle{fancy@main}{\fancyhf{}%
   \fancyfoot[C]{\zihao{5} -~\thepage~-}
-  \fancyhead[EC]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@thesis}
+  \fancyhead[EC]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@doctorthesis}
   \fancyhead[OC]{\song\zihao{-5} \leftmark}
   % 双页眉线
   \renewcommand{\headrule}{%
@@ -305,6 +305,42 @@
 %->> Title and Caption
 %===========================================================================%
 % Pkg: [heading]ctex
+\ifhitsz@midterm
+\ctexset{%
+  chapter={
+    name={第,章},
+    afterindent=true,
+    beforeskip={18.74658bp},%一个空行 1.57481 × 18
+    afterskip={24.74658bp},%0.8应该不计算间距 0.8 × 18 + 0.57481×18
+    aftername=\enspace,
+    format={\centering\heiti\zihao{-2}},
+    numberformat=\normalfont,
+    fixskip=true, % 添加这一行去除默认间距
+  },
+  section={
+    name={,.},
+    beforeskip={10bp plus 1.677267bp minus 1.157391bp}, % 原为13.5bp
+    afterskip={10bp plus 1.677267bp minus 1.157391bp},
+    format={\zihao{-4}},
+    aftername=\enspace,
+    fixskip=true,
+  },
+  subsection={
+    name={,.},
+    beforeskip={10bp \@plus 1.842609bp \@minus 0.9920497bp}, % 原为11bp
+    afterskip={10bp \@plus 2.33863bp \@minus 0.49602bp},
+    format={\zihao{-4}},
+    aftername=\enspace,
+    fixskip=true,
+  },
+  subsubsection={
+    name={,.},
+    beforeskip={10bp \@plus 1.842609bp \@minus 0.9920497bp}, % 原为11bp
+    afterskip={10bp \@plus 2.33863bp \@minus 0.49602bp},
+    format={\zihao{-4}},
+    aftername=\enspace,
+    fixskip=true,
+}}\else
 \ctexset{%
   chapter={
     name={第,章},
@@ -338,16 +374,22 @@
     aftername=\enspace,
     fixskip=true,
     break={},
+}}\fi
+
+\ifhitsz@midterm
+  % section 序号
+  \renewcommand*{\thesection}{\arabic{section}}
+  % 定义subsubsubsection
+  \newcounter{subsubsubsection}
+  \setcounter{subsubsubsection}{0}
+  \renewcommand{\thesubsubsubsection}{\thesubsubsection .\arabic{subsubsubsection}}
+  \newcommand{\subsubsubsection}[1]{
+    \stepcounter{subsubsubsection}
+    % \ziha{-4}\song
+    \noindent\makebox[3.4em][l]{\thesubsubsubsection.}
+    \zihao{-4}\song #1 \par
   }
-}
-% ----- 中期报告分节
-\newcounter{newpart}
-\setcounter{newpart}{0}
-\newcommand{\newpart}[1]{
-  \stepcounter{newpart}
-  \noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
-  \thenewpart . #1
-}
+\fi
 
 
 %===========================================================================%
@@ -467,17 +509,18 @@
 \RenewDocumentCommand\section{s o m o}{
   \IfBooleanTF{#1}{%	if \section*
     \hitsz@section*{#3}%
-    \IfValueT{#4}{%
-      \addcontentsline{entoc}{section}{#4}
-    }
+    \IfValueT{#4}
+    {\addcontentsline{entoc}{section}{#4}}
   }{%	if \section
     \IfNoValueTF{#2}%
-    {\hitsz@section{#3}}%
+    {\noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
+    \vspace{-20pt}\hitsz@section{#3}
+    \setcounter{subsubsubsection}{0}}%
     {\hitsz@section[#2]{#3}}%
     \IfValueT{#4}{%
     % 此处需删除章节的空白
-    \addcontentsline{entoc}{section}{%
-      \protect\numberline{\csname thesection\endcsname}\ignorespaces #4}
+    \addcontentsline{entoc}{section}
+    {\protect\numberline{\csname thesection\endcsname}\ignorespaces #4}
     }
   }
 }
@@ -784,7 +827,7 @@
       \zihao{2}\song
       \makebox[11em][s]{\textbf{\hitsz@info@school \hitsz@token@shenzhen}}\par
       \vspace{-6pt}
-      \makebox[15em][s]{\textbf{\hitsz@info@thesis 中期检查报告}}\par
+      \makebox[15em][s]{\textbf{\hitsz@info@doctorthesis 中期检查报告}}\par
     }
 
     \vspace{50pt}
@@ -834,7 +877,7 @@
     \parbox[t][19.05cm][t]{\textwidth}{%
       \begin{center}
         \vspace{16pt}
-        \zihao{-1}\song\bfseries \hitsz@info@thesis\par
+        \zihao{-1}\song\bfseries \hitsz@info@doctorthesis\par
         \vspace{44pt}
         \zihao{2}\song{\hitsz@info@title}\par
         \vspace{42pt}
@@ -870,7 +913,7 @@
     % 标题
     \parbox[t][9.4cm][t]{\textwidth}{%
       \begin{center}
-        \zihao{-2}\song\textbf{工学\hitsz@info@thesis}
+        \zihao{-2}\song\textbf{工学\hitsz@info@doctorthesis}
         \par\vspace{42pt}
         \zihao{2}\heiti{\hitsz@info@title}
       \end{center}
@@ -936,6 +979,24 @@
   \end{center}
   % 恢复版面设置
   \restoregeometry
+}
+
+
+%===========================================================================%
+%->> Review Table
+%===========================================================================%
+\newcommand{\reviewPage}{
+  \if@openright\hitsz@clearemptydoublepage\else\clearpage\fi
+  \hspace{-37pt} 指导教师意见：\par
+  \vspace{180pt}\hspace{191.5pt} 指导教师签名：\par
+  \vspace{26pt}\hspace{251pt}
+  \hitsz@date@datefill\par
+  \vspace{30pt}
+  \noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
+  \hspace{-14pt} 检查小组意见：\par
+  \vspace{227.5pt}\hspace{230pt}组长（签字）：\par
+  \vspace{26pt}\hspace{251pt}
+  \hitsz@date@datefill\par
 }
 
 

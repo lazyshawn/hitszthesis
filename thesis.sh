@@ -36,12 +36,14 @@ loadDemo () {
 
 # Save demo
 saveDemo () {
+  texClean
   files=$(ls ./demo)
   echo "===> Begin save demo ..."
   echo "\$TexProject: $(pwd)"
   for file in ${files}
   do
-    cp -rf ${file} demo/${file}
+    rm -rf ./demo/${file}
+    cp -r ./${file} ./demo/${file}
     echo "Get update: ${file}"
   done
   echo "===> Demo saved."

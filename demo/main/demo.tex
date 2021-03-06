@@ -25,35 +25,56 @@
 图\ref{subfig1-1}$\sim$ \ref{subfig1-3}是三个插入题注的子图，
 而第四个子图不插入题注。
 % 双栏图片宽度一般60~70mm; 单栏图片宽度一般120~150mm
+% \begin{figure}[!ht]
+%   \centering
+%   \addtocounter{subfigure}{-1}
+%   % \subfloat[English Caption]{\subfloat[Chinese Caption]{\inlcudegraphics{}}}
+%   \subfloat[subfig1\label{subfig1-1}]{\subfloat[\vspace{-8pt}子图1]{
+%       \includegraphics[width=68mm]{pics/pic.jpg}}
+%   }
+%   \hspace{10pt}
+%   \addtocounter{subfigure}{-1}
+%   \subfloat[subfig2\label{subfig1-2}]{\subfloat[\vspace{-8pt}子图2]{
+%     \includegraphics[width=68mm]{pics/pic.jpg}}
+%   } \\
+%   \subfloat[subfig3\label{subfig1-3}]{
+%     \includegraphics[width=68mm]{pics/pic.jpg}
+%   }
+%   \hspace{10pt}
+%   \subfloat{
+%     \includegraphics[width=68mm]{pics/pic.jpg}
+% }
+% % \figCaption{label}{Chinese Caption}{English Caption}
+% \figCaption{fig:HK}{空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士空洞骑士}{Hollow Knight}
+% \end{figure}
 \begin{figure}[!ht]
-  \centering
-  \addtocounter{subfigure}{-1}
-  % \subfloat[English Caption]{\subfloat[Chinese Caption]{\inlcudegraphics{}}}
-  \subfloat[subfig1\label{subfig1-1}]{\subfloat[\vspace{-8pt}子图1]{
-      \includegraphics[width=68mm]{pics/pic.jpg}}
+\centering
+  \subfloat[子图1\label{subfig1-1}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
+    % \setcounter{subfigure}{0}  % 子图序号计数器
   }
-  \hspace{10pt}
-  \addtocounter{subfigure}{-1}
-  \subfloat[subfig2\label{subfig1-2}]{\subfloat[\vspace{-8pt}子图2]{
-    \includegraphics[width=68mm]{pics/pic.jpg}}
+  \hspace{30pt}
+  \subfloat[子图2\label{subfig1-2}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
   } \\
-  \subfloat[subfig3\label{subfig1-3}]{
-    \includegraphics[width=68mm]{pics/pic.jpg}
+  \subfloat[子图3\label{subfig1-3}]{
+    \includegraphics[scale=0.07]{pics/pic.jpg}
   }
-  \hspace{10pt}
+  \hspace{30pt}
   \subfloat{
-    \includegraphics[width=68mm]{pics/pic.jpg}
+    \includegraphics[scale=0.07]{pics/pic.jpg}
 }
-% \figCaption{label}{Chinese Caption}{English Caption}
-\figCaption{fig:HK}{空洞骑士}{Hollow Knight}
+\caption{Hollow Knight\label{fig:HK}}
+\vspace{-0.3cm}
 \end{figure}
 
 
 \section{表格}[Table]
-% 三线表的绘制。很多刊物都明确规定稿件中要使用三线表。三线表在必要时也可添加若干条水平辅助分隔中线。
+三线表的绘制。很多刊物都明确规定稿件中要使用三线表。三线表在必要时也可添加若干条水平辅助分隔中线。
 \begin{table}[!h]
 \centering
-\tabCaption{tab:2-1}{序号计数器及其用途}{Counters and usage}
+% \tabCaption{tab:2-1}{序号计数器及其用途}{Counters and usage}
+\caption{序号计数器及其用途\label{tab:2-1}}
 \begin{tabular}{@{}ll@{}}
 \toprule[1pt]
 计数器名   & 用途            \\ \midrule

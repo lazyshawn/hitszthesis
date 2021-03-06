@@ -8,21 +8,18 @@
 %->> More: https://github.com/lazyshawn/hitszthesis_master.git
 %===========================================================================%
 
-% Options: midterm(中期)
-\documentclass{style/thesis_doctor}
+\documentclass[midterm]{style/thesis_doctor}
+% \documentclass{style/thesis_doctor}
 % 导言区设置
 \input{preamble}
+\usepackage{lipsum}  % 随机文本，测试用
 
-% 随机文本，测试用
-\usepackage{lipsum}
 
-% 分段编译: 先整体编译一次生成引用，在分段编译
-% \includeonly{main/introduction}
+% \includeonly{main/abstract, main/introduction}
 
 \begin{document}
   % ===== Cover | 封面 =====
   \maketitle
-
 
   % ===== Front | 书前部分 =====
   \frontmatter
@@ -30,10 +27,11 @@
   \include{main/abstract}
   % --- Contents / 目录 ----
   \tableofcontents
-  \tableofencontents
+  % \tableofencontents
 
   % ===== Main | 正文部分 =====
   \mainmatter
+  
   % --- Main body | 正文 ---
   \include{main/introduction}
   \include{main/demo}
@@ -41,13 +39,14 @@
   % --- Reference | 参考文献 ---
   \bibliography{refs/reference}
   % --- 发表的论文 | 参考文献 ---
-  \include{main/publication}
+  % \include{main/publication}
   % --- Authorization | 原创性声明 ---
-  \authorization
+  % \authorization
   % --- Acknowledgment | 致谢 ---
   \include{main/acknowledgment}
   % --- Resume | 个人简历 ---
-  \include{main/resume}
+  % \include{main/resume}
+  % \reviewPage
 
 
   % ===== Appendix | 附录 =====
@@ -55,4 +54,12 @@
   % \input{appendix/appendix_1}
   % \includepdf[pages={1,2}]{appendices/article.pdf}
 \end{document}
+
+!!!!! ------ Common commands: --------!!!!!
+% 只检查语法
+\syntaxonly
+% Only coding these sections
+\includeonly{sections/section-01,appendixes/appendix-01}
+
+!!!!! ------ Note: ------ !!!!!
 
