@@ -35,9 +35,7 @@
 \DeclareOption{oneside}{%
   \PassOptionsToClass{oneside}{book}%
 }
-\DeclareOption{openany}{%
-  \PassOptionsToClass{openany}{book}%
-}
+\PassOptionsToClass{openany}{book}%
 \DeclareOption{twoside}{%
   \PassOptionsToClass{twoside}{book}%
 }
@@ -325,10 +323,13 @@
       \makebox[150pt][s]{\zihao{-2}\kai\textbf{哈尔滨工业大学}}
       \par\vspace{37pt}
       \makebox[300pt][s]{\zihao{2}\song\textbf{硕士学位论文中期报告}}
-      \par\vspace{30pt}\hspace{-86pt}
-      \zihao{-2}\song
+      \par\vspace{30pt}\zihao{-2}\song
+      \newlength{\titleLength} \settowidth{\titleLength}{\hitsz@info@titleA}
       \makebox[2.5em][s]{\textbf{题目}}\textbf:\hspace{6pt}
-      \textbf{\hitsz@info@title}\par
+      \begin{minipage}[t]{\titleLength}{
+        \textbf{\hitsz@info@titleA}\par
+        \textbf{\hitsz@info@titleB}
+      }\end{minipage}
     \end{center}
   }
   \end{center}
@@ -340,7 +341,7 @@
      \textbf{学\hfill{}科} & \hitsz@cmd@uline{机械工程} \\
      \textbf{导\hfill{}师} & \hitsz@cmd@uline{\hitsz@info@teacher 教授} \\
      \textbf{研\hfill{}究\hfill{}生} & \hitsz@cmd@uline{\hitsz@info@author} \\
-     \textbf{学\hfill{}号} & \hitsz@cmd@uline{\hitsz@info@defensedate} \\
+     \textbf{学\hfill{}号} & \hitsz@cmd@uline{\hitsz@info@studentid} \\
      \textbf{中期报告日期} & \hitsz@cmd@uline{\hitsz@info@defensedate} \\
   \end{tabular}
   \renewcommand{\arraystretch}{1} %表格间距
