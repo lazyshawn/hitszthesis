@@ -62,7 +62,7 @@
 %===========================================================================%
 \AtEndOfPackage{% class cfg loaded after package to make preamble commands take effect
   \makeatletter
-  \InputIfFileExists{style/thesis_doctor.cfg}{}{}
+  \InputIfFileExists{style/thesis.cfg}{}{}
   \makeatother
 }
 
@@ -790,9 +790,9 @@
     \vspace{50pt}
     \hitsz@cmd@duuline{研究生}{\hitsz@info@author}
     \hitsz@cmd@duuline{入学时间}{\hitsz@info@enrollment}
-    \hitsz@cmd@duuline{论文题目}{\hitsz@info@title}
-    \hitsz@cmd@duuline{}{}
-    \hitsz@cmd@duuline{学科专业}{机械工程与自动化学院}
+    \hitsz@cmd@duuline{论文题目}{\hitsz@info@titleA}
+    \hitsz@cmd@duuline{}{\hitsz@info@titleB}
+    \hitsz@cmd@duuline{学科专业}{\hitsz@info@speciality}
     \hitsz@cmd@duuline{中期报告时间}{\hitsz@info@defensedate}
     \hitsz@cmd@duuline{导师}{\hitsz@info@teacher 教授}
   \end{center}

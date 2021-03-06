@@ -58,7 +58,7 @@
 %===========================================================================%
 \LoadClass[a4paper]{book}
 \@ifclasslater{book}{2017/01/01}{}{%
-  \ClassError{hitszthesis}{ctex >= 2017/01/01 is required ...}{}%
+  \ClassError{hitszthesis}{ctex >= 2017/01/01 is required \ldots}{}%
 }
 
 
@@ -67,7 +67,7 @@
 %===========================================================================%
 \AtEndOfPackage{% class cfg loaded after package to make preamble commands take effect
   \makeatletter
-  \InputIfFileExists{style/thesis_master.cfg}{}{}
+  \InputIfFileExists{style/thesis.cfg}{}{}
   \makeatother
 }
 
@@ -485,7 +485,7 @@
 	\renewcommand{\hitsz@token@keywords}{#1}
 	\par
   \vspace{\baselineskip}
-  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywordsname：}%
+  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords：}%
   \begin{minipage}[t]{120mm}{
     \hitsz@token@keywords
   }
@@ -497,7 +497,7 @@
 \newcommand\enkeyword[1]{%
 	\renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vskip2ex
-  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywordsname：}%
+  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords：}%
   \begin{minipage}[t]{120mm}{
     \hitsz@token@enkeywords
   }
