@@ -767,6 +767,7 @@
 }
 
 % 下划线
+\ULdepth=11.5pt
 \newcommand{\hitsz@cmd@duuline}[2]{
   \uline{\zihao{4}\song
     \makebox[89pt][s]{\textbf{#1}}
