@@ -23,7 +23,7 @@ bash thesis.sh -l
 
 3. Code your tex project.
 > For more information, please refer to [tutorial.md](
-https://github.com/lazyshawn/hitszthesis_master/blob/master/tutorial.md)
+https://github.com/lazyshawn/hitszthesis_master/blob/master/tutorial.md).
 
 In the case that you are using the default project,
 you should modify a tex file named `preamble.tex` to fill your information,
@@ -54,7 +54,6 @@ Here is the structure of this project after loading demo:
 ```git
 │
 ├─ style
-│  ├─ gbt7714.dtx             % 参考文献格式(.dtx)
 │  ├─ gbt7714.bst             % 参考文献格式
 │  ├─ gbt7714.sty             % 参考文献格式宏包
 │  ├─ hitszthesis_master.cls  % 文档类

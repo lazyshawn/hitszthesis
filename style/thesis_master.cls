@@ -337,9 +337,9 @@
   \song\zihao{3}\hspace{5pt}
   \renewcommand{\arraystretch}{1.37} %表格间距
   \begin{tabular}{@{\song}r@{ }@{}l@{}}%
-    \textbf{院\hfill{}\makebox[33pt][s]{（系）}} & \hitsz@cmd@uline{机电工程与自动化学院} \\
-     \textbf{学\hfill{}科} & \hitsz@cmd@uline{机械工程} \\
-     \textbf{导\hfill{}师} & \hitsz@cmd@uline{\hitsz@info@teacher 教授} \\
+    \textbf{院\hfill{}\makebox[33pt][s]{（系）}} & \hitsz@cmd@uline{\hitsz@info@department} \\
+     \textbf{学\hfill{}科} & \hitsz@cmd@uline{\hitsz@info@speciality} \\
+     \textbf{导\hfill{}师} & \hitsz@cmd@uline{\hitsz@info@teacher} \\
      \textbf{研\hfill{}究\hfill{}生} & \hitsz@cmd@uline{\hitsz@info@author} \\
      \textbf{学\hfill{}号} & \hitsz@cmd@uline{\hitsz@info@studentid} \\
      \textbf{中期报告日期} & \hitsz@cmd@uline{\hitsz@info@defensedate} \\
@@ -447,7 +447,7 @@
     \renewcommand{\arraystretch}{0.89} %表格间距
     \begin{tabular}{@{}l@{\hspace{1em}}l@{}}%
       \bfseries Candidate: & \hitsz@info@enauthor \\
-      \bfseries Supervisor: & Prof. \hitsz@info@enteacher \\
+      \bfseries Supervisor: & \hitsz@info@enteacher \\
       \bfseries Academic Degree Applied for: & Master of Engineering \\
       \bfseries Speciality: & Mechanical Manufacturing and \\
                             & Automation \\

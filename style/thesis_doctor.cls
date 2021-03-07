@@ -76,7 +76,6 @@
 \RequirePackage{hyperref}   % 超链接
 \RequirePackage{ulem}       % 下划线
 \RequirePackage{fancybox}   % 页面边框
-% \RequirePackage{array}      % 数组宏包，已在其他宏包中引用
 \RequirePackage{enumitem}   % 列表环境
 \RequirePackage{calc}       % 算术宏包
 \RequirePackage{style/gbt7714}  % 参考文献标准: GB/T 7714 (包含natbib宏包)
@@ -111,7 +110,7 @@
   nomarginpar,
 }
 \ifhitsz@midterm
-  \geometry{% 版芯高度 = textheight(224) + head(5) + headsep(3) + footskip(8) = 240 mm
+  \geometry{
     text={144true mm,238.8true mm},
     top=27.8true mm,
     left=33true mm,
@@ -413,7 +412,6 @@
 
 % ----- 英文摘要
 \newcommand{\enabstract}{
-  % \fancyChapter{enabstract}
   \chapter*{\hitsz@cap@enabstract}[\hitsz@entoc@enabstract]
   \@mkboth{\hitsz@cap@enabstract}{\hitsz@cap@enabstract}%
 }
@@ -434,7 +432,6 @@
 % 以章节格式添加目录
 \renewcommand\tableofcontents{%
   \if@openright\cleardoublepage\else\clearpage\fi
-  % \hitsz@pagestyle{fancy@contents}
   \phantomsection    % 虚拟章节
   \chapter*{\hitsz@cap@contents}
   \@mkboth{\hitsz@cap@contents}{\hitsz@cap@contents}%
@@ -635,7 +632,6 @@
 % 使用style/gbt7714宏包可默认选择unsrt文献格式
 % \bibliographystyle{unsrt}
 \renewenvironment{thebibliography}[1]{
-  % \if@openright\cleardoublepage\else\clearpage\fi
   \ctexset{chapter/numbering=false}
   \chapter*{\hitsz@cap@ref}[\hitsz@cap@enref]%
   \@mkboth{\MakeUppercase\hitsz@cap@ref}{\MakeUppercase\hitsz@cap@ref}%
@@ -740,6 +736,15 @@
 \setlength{\abovecaptionskip}{8pt}
 \setlength{\belowcaptionskip}{8pt}
 
+% 图表序号
+\ifhitsz@midterm
+  \renewcommand*{\thefigure}{\thesection-\arabic{figure}}
+  \renewcommand*{\thetable}{\thesection-\arabic{table}}
+\else
+  \renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
+  \renewcommand*{\thetable}{\thechapter-\arabic{table}}
+\fi
+
 % ----- 图
 % 如果图片没有指定后缀, 依次按下列顺序搜索
 \DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
@@ -748,18 +753,8 @@
   {contents/}{pics/}{imgs/}{main/pics/}
   {front/pics/}{appendices/pics/}{back/pics/}
 }
-\ifhitsz@midterm
-  \renewcommand*{\thefigure}{\thesection-\arabic{figure}}
-\else
-  \renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
-\fi
+% 图标题
 \renewcommand{\figurename}{图}
-\captionsetup[figure]{%
-	% format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
-	labelsep=quad, % 分隔符是一个空格
-	font={song,wuhao}, % 图的字体, 宋体小四
-	position=bottom % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
-}
 \newcommand{\figCaption}[3]{%
   \vspace{-6pt}
   \renewcommand{\figurename}{图}
@@ -769,14 +764,11 @@
   \renewcommand{\figurename}{Fig}
   \caption{#3}
 }
-\newcommand{\tabCaption}[3]{%
-  \renewcommand{\figurename}{表}
-  \caption{#2\label{#1}}
-  \vspace{-20pt}
-  \addtocounter{table}{-1}
-  \renewcommand{\tablename}{Table}
-  \caption{#3}
-  \vspace{-8pt}
+\captionsetup[figure]{%
+  % format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
+  labelsep=quad, % 分隔符是一个空格
+  font={song,wuhao}, % 图的字体, 宋体小四
+  position=bottom % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
 }
 
 % ----- 子图
@@ -794,18 +786,23 @@
 }
 
 % ----- 表格
-\ifhitsz@midterm
-  \renewcommand*{\thetable}{\thesection-\arabic{table}}
-\else
-  \renewcommand*{\thetable}{\thechapter-\arabic{table}}
-\fi
+% 表格标题
 \renewcommand{\tablename}{表}
+\newcommand{\tabCaption}[3]{%
+  \renewcommand{\figurename}{表}
+  \caption{#2\label{#1}}
+  \vspace{-20pt}
+  \addtocounter{table}{-1}
+  \renewcommand{\tablename}{Table}
+  \caption{#3}
+  \vspace{-8pt}
+}
 \captionsetup[table]{%
-	% format=hang,
+  % format=hang,
   labelformat=simple,
-	labelsep=quad,
-	font={song,wuhao},
-	position=bottom
+  labelsep=quad,
+  font={song,wuhao},
+  position=bottom
 }
 
 
@@ -942,7 +939,7 @@
   \renewcommand{\arraystretch}{1.26} %表格间距
   \begin{tabular}{@{}r@{：}@{}l@{}}%
     \heiti 博\hfill{}士\hfill{}研\hfill{}究\hfill{}生 & \hitsz@info@author \\
-    \heiti 导\hfill{}师 & \hitsz@info@teacher 教授 \\
+    \heiti 导\hfill{}师 & \hitsz@info@teacher \\
     \heiti 申\hfill{}请\hfill{}学\hfill{}位 & 工学硕士 \\
     \heiti 学\hfill{}科 & \hitsz@info@speciality \\
     \heiti 所\hfill{}在\hfill{}单\hfill{}位 & \hitsz@info@school \hitsz@token@shenzhen \\
@@ -984,7 +981,7 @@
     \renewcommand{\arraystretch}{0.89} %表格间距
     \begin{tabular}{@{}l@{\hspace{1em}}l@{}}%
       \bfseries Candidate: & \hitsz@info@enauthor \\
-      \bfseries Supervisor: & Prof. \hitsz@info@enteacher \\
+      \bfseries Supervisor: & \hitsz@info@enteacher \\
       \bfseries Academic Degree Applied for: & Master of Engineering \\
       \bfseries Speciality: & Mechanical Manufacturing and \\
                             & Automation \\
