@@ -486,15 +486,18 @@
   \if@openright\cleardoublepage\else\clearpage\fi
   \IfBooleanTF{#1}{%	if \chapter*
     \IfNoValueTF{#4}{%
-      \hitsz@chapter*{#3}
-      }{
-      \hitsz@chapter*{#3}
+      \hitsz@chapter*{#3}}
+     {\hitsz@chapter*{#3}
       % 此处添加保护选项
       \addcontentsline{toc}{chapter}{\texorpdfstring{\bfseries #3}{#3}}
       \addcontentsline{entoc}{chapter}{\texorpdfstring{\bfseries #4}{#4}}
     }
   }{%	if \chapter
-    \IfNoValueTF{#2}{\hitsz@chapter{#3}}%
+    \IfNoValueTF{#2}
+    {\ifhitsz@midterm
+     \else
+       \hitsz@chapter*{#3}
+     \fi}%
     {\hitsz@chapter[#2]{#3}}%
     \IfValueT{#4}{%
 %    此处需删除章节的空白
@@ -513,11 +516,15 @@
     {\addcontentsline{entoc}{section}{#4}}
   }{%	if \section
     \IfNoValueTF{#2}%
-    {\noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
-    \vspace{-20pt}\hitsz@section{#3}
+    {\ifhitsz@midterm
+    \noindent\tikz[overlay] \draw (-5mm,5.5mm) -- (\textwidth+5mm,5.5mm);
     \setcounter{subsubsubsection}{0}
     \setcounter{figure}{0}
-    \setcounter{table}{0}}%
+    \setcounter{table}{0}
+    \vspace{-20pt}
+    \fi
+    \hitsz@section{#3}
+    }%
     {\hitsz@section[#2]{#3}}%
     \IfValueT{#4}{%
     % 此处需删除章节的空白

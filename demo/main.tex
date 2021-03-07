@@ -8,58 +8,77 @@
 %->> More: https://github.com/lazyshawn/hitszthesis_master.git
 %===========================================================================%
 
+% ==>> 模板设置
 \documentclass[midterm]{style/thesis_doctor}
 % \documentclass{style/thesis_doctor}
-% 导言区设置
+
+% ==>> 导言区设置
 \input{preamble}
-\usepackage{lipsum}  % 随机文本，测试用
-
-
 % \includeonly{main/abstract, main/introduction}
 
+\usepackage{lipsum}  % 随机文本，测试用
+
+% ==>> 毕业论文模板
+% \begin{document}
+%   % ===== Cover | 封面 =====
+%   \maketitle
+%
+%   % ===== Front | 书前部分 =====
+%   \frontmatter
+%   % --- Abstract / 摘要 ---
+%   \include{main/abstract}
+%   % --- Contents / 目录 ----
+%   \tableofcontents
+%   \tableofencontents
+%
+%   % ===== Main | 正文部分 =====
+%   \mainmatter
+%
+%   % --- Main body | 正文 ---
+%   \include{main/introduction}
+%   \include{main/demo}
+%   \include{main/conclusion}
+%   % --- Reference | 参考文献 ---
+%   \bibliography{refs/reference}
+%   % --- 发表的论文 | 参考文献 ---
+%   \include{main/publication}
+%   % --- Authorization | 原创性声明 ---
+%   \authorization
+%   % --- Acknowledgment | 致谢 ---
+%   \include{main/acknowledgment}
+%   % --- Resume | 个人简历 ---
+%   \include{main/resume}
+%   % \reviewPage
+%
+%
+%   % ===== Appendix | 附录 =====
+%   % \appendix
+%   % \input{appendix/appendix_1}
+%   % \includepdf[pages={1,2}]{appendices/article.pdf}
+% \end{document}
+
+% ==>> 中期模板
 \begin{document}
   % ===== Cover | 封面 =====
   \maketitle
 
   % ===== Front | 书前部分 =====
   \frontmatter
-  % --- Abstract / 摘要 ---
-  \include{main/abstract}
-  % --- Contents / 目录 ----
-  \tableofcontents
-  % \tableofencontents
 
   % ===== Main | 正文部分 =====
   \mainmatter
-  
+
   % --- Main body | 正文 ---
   \include{main/introduction}
   \include{main/demo}
-  \include{main/conclusion}
   % --- Reference | 参考文献 ---
   \bibliography{refs/reference}
-  % --- 发表的论文 | 参考文献 ---
-  % \include{main/publication}
-  % --- Authorization | 原创性声明 ---
-  % \authorization
-  % --- Acknowledgment | 致谢 ---
-  \include{main/acknowledgment}
-  % --- Resume | 个人简历 ---
-  % \include{main/resume}
-  % \reviewPage
-
+  % --- Review | 审查表 ---
+  \reviewPage
 
   % ===== Appendix | 附录 =====
   % \appendix
   % \input{appendix/appendix_1}
   % \includepdf[pages={1,2}]{appendices/article.pdf}
 \end{document}
-
-!!!!! ------ Common commands: --------!!!!!
-% 只检查语法
-\syntaxonly
-% Only coding these sections
-\includeonly{sections/section-01,appendixes/appendix-01}
-
-!!!!! ------ Note: ------ !!!!!
 
