@@ -75,7 +75,6 @@
 \RequirePackage{fancyhdr}   % 页眉页脚
 \RequirePackage{hyperref}   % 超链接
 \RequirePackage{ulem}       % 下划线
-\RequirePackage{fancybox}   % 页面边框
 \RequirePackage{enumitem}   % 列表环境
 \RequirePackage{calc}       % 算术宏包
 \RequirePackage{style/gbt7714}  % 参考文献标准: GB/T 7714 (包含natbib宏包)
@@ -235,7 +234,7 @@
   % 清空页眉
   \let\headrule\hitsz@headrule%
   \renewcommand{\headrulewidth}{\z@}
-  % 无页脚
+  % 页脚
   \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
 }
 \fancypagestyle{fancy@front}{\fancyhf{}%
