@@ -1,9 +1,9 @@
 
-## What is this
-This project is a dissertation template for masters 
+## hitszthesis\_master
+This project is a dissertation template for masters and doctors
 in Harbin Institute of Technology, ShenZhen (HITSZ).
 
-You can check the demo at [pics/demo\_x.png](
+You can check the screenshots at [pics/demo\_x.png](
 https://github.com/lazyshawn/hitszthesis_master/tree/master/demo/pics).
 
 ## Usage
@@ -14,8 +14,8 @@ git clone https://github.com/lazyshawn/hitszthesis_master.git
 
 2. Load demo (optional).
 
-These commands will get a copy of a default project in current path,
-which may help you get start.
+These commands will get a copy of a default project to current path,
+which may help you get started.
 ```shell
 cd hitszthesis_master
 bash thesis.sh -l
@@ -29,13 +29,14 @@ In the case that you are using the default project,
 you should modify a tex file named `preamble.tex` to fill your information,
 then include all chapters in `main.tex`.
 
-Otherwise, make sure the `style/thesis_master.cls` is set as your documentclass. 
+Otherwise, make sure the `style/<thesis>.cls` is set as your documentclass,
+where the `<thesis>` means `thesis_master` for master or `thesis_doctor` for doctor.
 And informations about your dissertation should be provided by special directives
-(please refer to `demo/preamble.tex`).
+(please refer to `demo/preamble.tex` and `tutorial.md`).
 
 4. Compile / Build.
 
-Compile tex project in one way you are prefer to.
+Compile tex project in the way you are prefer to.
 Optionally, you can use command line to finish it by running:
 ```shell
 bash thesis.sh -b
@@ -47,6 +48,9 @@ Pull this repository to get update.
 Note that update only change the `style` and `demo` folders,
 will **not** vanish your previous work.
 Also make sure you are using the `.cls` file under `./style`.
+```shell
+git pull origin master
+```
 
 
 ## Documentation
@@ -87,7 +91,7 @@ Here is the structure of this project after loading demo:
 ## Tex
 Files under `style` are the class files, **do not** delete or edit them. 
 You need to load the documentclass in your main.tex,
-using `\documentclass{style/thesis_master}`.
+using `\documentclass{style/<thesis>}`.
 
 Modify `preamble.tex`, and write your information at first.
 Under the root directory, `mian.tex` is the main function for the template,
@@ -103,7 +107,7 @@ Folder `pics` and `appendix` is used to store your pics and appendices respectiv
 Run `xelatex` and `bibtex` once to define citations and references.
 Then run `xelatex` twice to get your final `pdf` file.
 
-There is a simple script `compile.sh`.
+There is a simple script named `compile.sh`.
 If your are not familiar with `xelatex`,
 running the following command may help:
 ```bash
@@ -124,8 +128,6 @@ bash thesis.sh [option]
 | `-c` / `--clean`            | Clean process files |
 
 
-
-
 ## Features
 * Easy to use.
 * Correct format.
@@ -138,4 +140,13 @@ Email: 20s053030@stu.hit.edu.cn
 ## Todos
 * [ ] Finish the Demo and Manual.
 * [x] Modify compile scripts.
+
+
+## Donation
+I would really appreciate it if you could financially support this project.
+
+WeChat  | Alipay
+|-|-|
+|![wechat](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg)|![alipay](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg)|
+
 
