@@ -81,10 +81,9 @@ Here is the structure of this project after loading demo:
 │                             
 ├─ main.tex                   % 主函数
 ├─ preamble.tex               % 导言区设置
-├─ demo.sh                    % 加载demo
-├─ compile.sh                 % 编译
-├─ clean.sh                   % 清理过程文件
-└─ README.md
+├─ thesis.sh                  % 脚本文件
+├─ README.md
+└─ ...                        % 编译过程文件
 ```
 
 
@@ -144,9 +143,10 @@ Email: 20s053030@stu.hit.edu.cn
 
 ## Donation
 I would really appreciate it if you could financially support this project.
+(疯狂暗示)
 
 WeChat  | Alipay
 |-|-|
-|![wechat](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg)|![alipay](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg)|
+|![wechat](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg =900x)|![alipay](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg =900x)|
 
 

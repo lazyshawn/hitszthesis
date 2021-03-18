@@ -548,6 +548,29 @@
     }
   }
 }
+% ----- 双语Subsubsection
+\let\hitsz@subsubsection\subsubsection
+\RenewDocumentCommand\subsubsection{s o m o}{
+  \IfBooleanTF{#1}{%	if \subsection*
+    \hitsz@subsection*{#3}%
+    \setcounter{subsubsubsection}{0}
+    \IfValueT{#4}{%
+      \addcontentsline{entoc}{subsubsection}{#4}
+      \setcounter{subsubsubsection}{0}
+    }
+  }{%	if \subsection
+    \IfNoValueTF{#2}%
+    {\hitsz@subsubsection{#3}
+     \setcounter{subsubsubsection}{0}}%
+    {\hitsz@subsubsection[#2]{#3}
+     \setcounter{subsubsubsection}{0}}%
+    \IfValueT{#4}{%
+    % 此处需删除章节的空白
+    \addcontentsline{toe}{subsubsection}{%
+      \protect\numberline{\csname thesubsubsection\endcsname}\ignorespaces #4}
+    }
+  }
+}
 
 
 %===========================================================================%
