@@ -83,6 +83,7 @@
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath}    % 数学公式
+\RequirePackage{tabularx}
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
 \usetikzlibrary{calc}       % tikz计算宏包
@@ -693,13 +694,17 @@
 % ----- 公式参数解释
 \newenvironment{note}{%
   \noindent\makebox[3em][l]{式中}%
-  \begin{minipage}[t]{100mm}\begingroup
-}{\endgroup\end{minipage}
+  \begin{minipage}[t]{\textwidth-3em}\begingroup
+  % \begin{tabularx}{50mm}[t]{rr}
+}{
+  % \end{tabularx}
+  \endgroup\end{minipage}
   \par\vspace{6pt}
 }
 \newcommand{\para}[2]{%
   % 先建盒子再换行会产生badbox警告(Underfull \box)
-  \par\makebox[1em][c]{#1} --- #2
+  % 窝工模板的奇怪要求：破折号长度
+  \par\makebox[2em][r]{#1} --- #2
 }
 
 

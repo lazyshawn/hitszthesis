@@ -143,10 +143,8 @@ Email: 20s053030@stu.hit.edu.cn
 
 ## Donation
 I would really appreciate it if you could financially support this project.
-(疯狂暗示)
 
-WeChat  | Alipay
+| WeChat  | Alipay |
 |-|-|
-|![wechat](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg =900x)|![alipay](https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg =900x)|
-
+| <img src="https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg" width = "900" alt="wechat" align=center /> | <img src="https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg" width = "900" alt="alipay" align=center /> |
 

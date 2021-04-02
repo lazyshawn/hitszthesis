@@ -7,17 +7,28 @@
 其动量随时间的变化率同该质点所受的外力成正比，并与外力的方向相同。
 牛顿第二定律的数学表述如式(\ref{equ:Newton_2})所示。
 \begin{equation}
-  F_e=\frac{d}{dt}mv;
+  F_{\rm e}=\frac{\rm d}{{\rm d}t}mv
   \label{equ:Newton_2}
 \end{equation}
 
-\begin{note}
-  \para{$F_e$}{物体所受合外力（N）；\hfill{}}
-  \para{$m$}{物体质量（kg）；}
-  \para{$v$}{物体运动速度（$\rm{m/s^2}$）。}
-\end{note}
+\noindent\makebox[3em][l]{式中}%
+\begin{minipage}[t]{\textwidth-3em}\begingroup
+  \begin{tabularx}{\textwidth}[t]{r@{\;------\;}X}
+    $F_{\rm e}$ & 物体所受合外力{\rm （N）}； \\
+    $m$ & 物体质量{\rm （kg）}； \\
+    $v$ & 物体运动速度物体运动速度物体运动速度物体运动速度物体运动速度物体运动速度（$\rm{m/s^2}$）。 \\
+  \end{tabularx}
+\endgroup\end{minipage}
+\par\vspace{6pt}
 
-通常，物体质量不随时间变化，因此牛顿第二定律也可表述为$F_e=ma$。
+% \begin{note}
+%   % sdf
+%   $F_{\rm e}$ & 物体所受合外力{\rm （N）}； \\
+%   % $m$         & 物体质量{\rm （kg）}； \\
+%   % $v$         & 物体运动速度（$\rm{m/s^2}$）。 \\
+% \end{note}
+
+通常，物体质量不随时间变化，因此牛顿第二定律也可表述为$F_{\rm e}=ma$。
 
 
 \section{插图}[Figure]
@@ -29,7 +40,7 @@
 %   \centering
 %   \addtocounter{subfigure}{-1}
 %   % \subfloat[English Caption]{\subfloat[Chinese Caption]{\inlcudegraphics{}}}
-%   \subfloat[subfig1\label{subfig1-1}]{\subfloat[\vspace{-8pt}子图1]{
+%\fi   \subfloat[subfig1\label{subfig1-1}]{\subfloat[\vspace{-8pt}子图1]{
 %       \includegraphics[width=68mm]{pics/pic.jpg}}
 %   }
 %   \hspace{10pt}
@@ -47,7 +58,6 @@
 % % \figCaption{label}{Chinese Caption}{English Caption}
 % \figCaption{fig:HK}{空洞骑士}{Hollow Knight}
 % \end{figure}
-
 \begin{figure}[!ht]
 \centering
   \subfloat[子图1\label{subfig1-1}]{
@@ -72,7 +82,7 @@
 
 \section{表格}[Table]
 三线表的绘制。很多刊物都明确规定稿件中要使用三线表。三线表在必要时也可添加若干条水平辅助分隔中线。
-\begin{table}[!h]
+\begin{table}[!ht]
 \centering
 % \tabCaption{tab:2-1}{序号计数器及其用途}{Counters and usage}
 \caption{序号计数器及其用途\label{tab:2-1}}
