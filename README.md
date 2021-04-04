@@ -47,7 +47,7 @@ bash thesis.sh -b
 Pull this repository to get update.
 Note that update only change the `style` and `demo` folders,
 will **not** vanish your previous work.
-Also make sure you are using the `.cls` file under `./style`.
+Also make sure you are using the `<thesis>.cls` file under `./style`.
 ```shell
 git pull origin master
 ```
@@ -136,9 +136,11 @@ bash thesis.sh [option]
 Email: 20s053030@stu.hit.edu.cn
 
 
-## Todos
+## Recent efforts
 * [ ] Finish the Demo and Manual.
 * [x] Modify compile scripts.
+* [ ] Listing environment.
+* [ ] Pseudo code.
 
 
 ## Donation

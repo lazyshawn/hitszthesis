@@ -6,19 +6,19 @@
 ### 模板的引用
 目前模板支持哈工大（深圳）的硕士、博士的中期和毕设的格式。
 在你的`main.tex`文件的导言区（即\begin{document}之前）通过下面命令引用该模板：
-```
+```tex
 \documentclass[option]{style/<thesis>}
 ```
-其中`[option]`为可选参数，不填默认使用毕设格式，
-选`midterm`为中期格式。
+其中`[option]`为可选参数，不填默认使用毕设格式，选`midterm`为中期格式。
+`<thesis>`为对应的学位，硕士选`thesis_master`，博士选`thesis_doctor`。
 
 ### 字体设置命令
-注意在 Ubuntu 系统下需要安装相应的字体。
+注意在 Linux 系统下需要安装相应的字体。详情请自行百度。
 
-| 命令    | 功能               |
-| ---     | ---                |
-| `\kai`  | 设置字体格式为楷书 |
-| `\song` | 设置字体格式为宋书 |
+| 命令      | 功能                   |
+| ---       | ---                    |
+| `\kai`    | 设置字体格式为楷书     |
+| `\song`   | 设置字体格式为宋书     |
 | `\xinwei` | 设置字体格式为华文新魏 |
 
 
@@ -44,16 +44,16 @@
 这些章节 (chapter) 通常是没有编号但是需要添加到目录中的章节，
 如中英文摘要、原创性声明、参考文献等。
 
-| 命令                 | 功能         |
-| ---                  | ---          |
-| `\abstract`          | 中文参考文献 |
-| `\enabstract`        | 英文参考文献 |
-| `\conclusion`        | 结论         |
-| `\tableofencontents` | 英文目录     |
-| `\authorization`     | 原创性声明   |
-| `\acknowledgement`   | 致谢         |
-| `\resume`            | 个人简历     |
-| `\publication`       | 发表论文及成果  |
+| 命令                 | 功能           |
+| ---                  | ---            |
+| `\abstract`          | 中文参考文献   |
+| `\enabstract`        | 英文参考文献   |
+| `\conclusion`        | 结论           |
+| `\tableofencontents` | 英文目录       |
+| `\authorization`     | 原创性声明     |
+| `\acknowledgement`   | 致谢           |
+| `\resume`            | 个人简历       |
+| `\publication`       | 发表论文及成果 |
 
 
 ### 浮动体环境中的常用命令
@@ -65,8 +65,8 @@
 $$ foo $$
 % Note
 \begin{note}
-  \para{$a$}{description for a}
-  \para{$b$}{description for b}
+  $a$ & description for a； \\
+  $b$ & description for b； \\
 \end{note}
 ```
 
@@ -103,10 +103,10 @@ demo 中有子图的设置例程。
 ```
 其中星号和方括号内为可选参数，花括号内为必选参数。  
 
-\*: 不编号且不列入目录的章节，如果有英文标题则会将标题不编号列入目录；
-name\_in\_toc: 章节在目录中的名称;  
-name: 正文中的章节名称;  
-en\_name: 章节在英文目录中的名称。  
+`*`: 不编号且不列入目录的章节，如果有英文标题则会将标题不编号列入目录；  
+`name_in_toc`: 章节在目录中的名称;  
+`name`: 正文中的章节名称;  
+`en_name`: 章节在英文目录中的名称。  
 
 ## § 注意事项
 1. 需要注意的是在博士论文中期模板中，章节命令从`\section`开始，

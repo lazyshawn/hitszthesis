@@ -140,9 +140,9 @@
 \newcommand*{\kai}{\CJKfamily{kai}}
 \setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
 \newcommand*{\song}{\CJKfamily{song}}
-\setCJKfamilyfont{xinwei}[AutoFakeBold]{stxinwei.ttf}
-\newcommand*{\xinwei}{\CJKfamily{xinwei}}
 \setCJKmainfont[BoldFont={SimHei}, ItalicFont={KaiTi}, BoldItalicFont={SimSun}]{SimSun}
+% \setCJKfamilyfont{xinwei}[AutoFakeBold]{stxinwei.ttf}
+% \newcommand*{\xinwei}{\CJKfamily{xinwei}}
 
 
 % ----- 字号设置
