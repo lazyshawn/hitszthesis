@@ -419,13 +419,15 @@
   \@mkboth{\hitsz@cap@enabstract}{\hitsz@cap@enabstract}%
 }
 \newcommand\enkeyword[1]{%
-	\renewcommand{\hitsz@token@enkeywords}{#1}
-  \par\vskip2ex
+  \renewcommand{\hitsz@token@enkeywords}{#1}
+  \par\vspace{\baselineskip}
+  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords：}%
   \begin{minipage}[t]{120mm}{
     \hitsz@token@enkeywords
   }
   \end{minipage}
 }
+
 
 %===========================================================================%
 %->> Table of Contents
@@ -485,22 +487,19 @@
 \RenewDocumentCommand{\chapter}{s o m o}{%
   \if@openright\cleardoublepage\else\clearpage\fi
   \IfBooleanTF{#1}{%	if \chapter*
-    \IfNoValueTF{#4}{%
-      \hitsz@chapter*{#3}}
-     {\hitsz@chapter*{#3}
+    \IfNoValueTF{#4}{% if english caption
+      \hitsz@chapter*{#3}
+    }{\hitsz@chapter*{#3}
       % 此处添加保护选项
       \addcontentsline{toc}{chapter}{\texorpdfstring{\bfseries #3}{#3}}
       \addcontentsline{entoc}{chapter}{\texorpdfstring{\bfseries #4}{#4}}
     }
-  }{%	if \chapter
-    \IfNoValueTF{#2}
-    {\ifhitsz@midterm
-     \else
-       \hitsz@chapter*{#3}
-     \fi}%
+  }{\IfNoValueTF{#2}%	if \chapter
+    {\ifhitsz@midterm\else\hitsz@chapter{#3}\fi}%
     {\hitsz@chapter[#2]{#3}}%
-    \IfValueT{#4}{%
-%    此处需删除章节的空白
+
+    \IfValueT{#4}{% if english caption
+      % 此处需删除章节的空白
       \addcontentsline{entoc}{chapter}{%
         \texorpdfstring{\bfseries\relax Chapter \thechapter\hspace{0.5em}\ignorespaces #4}{%
           Chapter \thechapter\hspace{0.5em}\ignorespaces #4}}
