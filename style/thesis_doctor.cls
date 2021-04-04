@@ -630,23 +630,12 @@
   \chapter*{\hitsz@cap@publication}[\hitsz@cap@enpublication]
   \@mkboth{\MakeUppercase\hitsz@cap@publication}{}%
   % 修改标题格式
-  \ctexset{section/format={\zihao{-4}\song\bfseries}}
-  % 自定义多级列表
-  \setlist{noitemsep}
-  \setlist[enumerate]{
-    font=\normalsize,
-    labelsep = 1.2em, 
-    leftmargin = 28.5pt,
-    itemindent = 0em,
-    partopsep = 0pt, 
-    topsep = 5pt, 
-    itemsep = 5pt, 
-    parsep = 0pt
-  }
-  % 一级列表
-  \setlist[enumerate,1]{
-    label = [\arabic*],
-    ref   = \arabic*
+  \ctexset{%
+    section={
+      beforeskip={14bp plus 1.677267bp minus 1.157391bp},
+      afterskip={14bp plus 1.677267bp minus 1.157391bp},
+      format={\zihao{-4}\song\bfseries},
+    }
   }
 }
 
@@ -708,27 +697,37 @@
 %===========================================================================%
 %->> Enumitem Settings
 %===========================================================================%
-% ----- 排序列表
-% Pkg: enumitem
-% 线上文档：
+% enumitem:
 % http://www.texnia.com/archive/enumitem.pdf
-% \newlist{normal}{enumerate}{3}
-\setlist{noitemsep}
-\setlist[enumerate]{
-  font=\normalsize,
-  labelsep =.5em, 
-  leftmargin = 0pt, 
+% --- 正文中的排序列表
+\newlist{listNormal}{enumerate}{3}
+\setlist[listNormal]{
+  font       = \normalsize,
+  labelsep   = .5em,
+  leftmargin = 0pt,
   itemindent = 3em,
-  itemsep = 0pt, 
+  partopsep  = 0pt,
+  topsep     = 0pt,
+  itemsep    = 0pt,
+  parsep     = 0pt,
+}
+\setlist[listNormal,1,2,3]{%
+  label = (\arabic*),
+  ref   = \arabic*,
+}
+% 发表论文及其他成果章节中的列表
+\newlist{listSquare}{enumerate}{1}
+\setlist[listSquare,1]{
+  label = [\arabic*],
+  ref = \arabic*,
+  font=\normalsize,
+  labelsep = 1.2em, 
+  leftmargin = 28.5pt,
+  itemindent = 0em,
   partopsep = 0pt, 
   topsep = 5pt, 
   itemsep = 5pt, 
-  parsep = 0pt
-}
-% 一级列表
-\setlist[enumerate,1]{
-  label = (\arabic*),
-  ref   = \arabic*
+  parsep = 0pt,
 }
 
 
