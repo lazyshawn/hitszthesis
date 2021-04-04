@@ -60,7 +60,8 @@
 %===========================================================================%
 %->> Load Class Configuration
 %===========================================================================%
-\AtEndOfPackage{% class cfg loaded after package to make preamble commands take effect
+% class cfg loaded after package to make preamble commands take effect
+\AtEndOfPackage{
   \makeatletter
   \InputIfFileExists{style/thesis.cfg}{}{}
   \makeatother
@@ -83,7 +84,7 @@
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath}    % 数学公式
-\RequirePackage{tabularx}
+\RequirePackage{tabularx}   % 表格自动列宽
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
 \usetikzlibrary{calc}       % tikz计算宏包
@@ -191,7 +192,8 @@
     % 页面边框
     \AddToShipoutPicture{%
       \begin{tikzpicture}[remember picture,overlay]
-        \draw ($(current page text area.south west)+(-5mm,-5mm)$) rectangle ($(current page text area.north east)+(5mm,2mm)$);
+        \draw ($(current page text area.south west)+(-5mm,-5mm)$) 
+          rectangle ($(current page text area.north east)+(5mm,2mm)$);
       \end{tikzpicture}
     }
   \else
@@ -258,8 +260,8 @@
 % ----- 正文区格式
 \fancypagestyle{fancy@main}{\fancyhf{}%
   \fancyfoot[C]{\zihao{5} -~\thepage~-}
-  \fancyhead[EC]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@doctorthesis}
-  \fancyhead[OC]{\song\zihao{-5} \leftmark}
+  \fancyhead[EC]{\song\zihao{-5}\hitsz@info@school 工学\hitsz@info@doctorthesis}
+  \fancyhead[OC]{\song\zihao{-5}\leftmark}
   % 双页眉线
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
@@ -381,10 +383,11 @@
   % 定义subsubsubsection
   \newcounter{subsubsubsection}
   \setcounter{subsubsubsection}{0}
-  \renewcommand{\thesubsubsubsection}{\thesubsubsection .\arabic{subsubsubsection}}
+  \renewcommand{\thesubsubsubsection}{
+    \thesubsubsection .\arabic{subsubsubsection}
+  }
   \newcommand{\subsubsubsection}[1]{
     \stepcounter{subsubsubsection}
-    % \ziha{-4}\song
     \noindent\makebox[3.4em][l]{\thesubsubsubsection.}
     \zihao{-4}\song #1 \par
   }
@@ -689,22 +692,17 @@
 %->> Equation ENV
 %===========================================================================%
 % ----- 修改公式编号
-\renewcommand\theequation{\ifnum \c@chapter>\z@ \thechapter-\fi\@arabic\c@equation}
+\renewcommand\theequation{%
+  \ifnum \c@chapter>\z@ \thechapter-\fi\@arabic\c@equation}
 
 % ----- 公式参数解释
-\newenvironment{note}{%
-  \noindent\makebox[3em][l]{式中}%
-  \begin{minipage}[t]{\textwidth-3em}\begingroup
-  % \begin{tabularx}{50mm}[t]{rr}
-}{
-  % \end{tabularx}
-  \endgroup\end{minipage}
-  \par\vspace{6pt}
-}
-\newcommand{\para}[2]{%
-  % 先建盒子再换行会产生badbox警告(Underfull \box)
-  % 窝工模板的奇怪要求：破折号长度
-  \par\makebox[2em][r]{#1} --- #2
+% tabularx: P4
+% http://mirrors.ibiblio.org/CTAN/macros/latex/required/tools/tabularx.pdf
+\newenvironment{note}{
+  \noindent\makebox[2em][l]{式中}%
+  \tabularx{\textwidth-2em}[t]{r@{\;------\;}X}
+}{\endtabularx
+  \par\vspace{5pt}
 }
 
 
@@ -792,10 +790,12 @@
   \caption{#3}
 }
 \captionsetup[figure]{%
-  % format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
+  % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
+  % format=hang,
   labelsep=quad, % 分隔符是一个空格
   font={song,wuhao}, % 图的字体, 宋体小四
-  position=bottom % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
+  % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
+  position=bottom
 }
 
 % ----- 子图
@@ -878,7 +878,7 @@
     \hitsz@cmd@duuline{}{\hitsz@info@titleB}
     \hitsz@cmd@duuline{学科专业}{\hitsz@info@speciality}
     \hitsz@cmd@duuline{中期报告时间}{\hitsz@info@defensedate}
-    \hitsz@cmd@duuline{导师}{\hitsz@info@teacher 教授}
+    \hitsz@cmd@duuline{导师}{\hitsz@info@teacher}
   \end{center}
 }
 

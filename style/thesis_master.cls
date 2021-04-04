@@ -83,6 +83,7 @@
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath}    % 数学公式
+\RequirePackage{tabularx}   % 表格自动列宽
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
 \usetikzlibrary{calc}       % tikz计算宏包
@@ -601,18 +602,17 @@
 %->> Equation ENV
 %===========================================================================%
 % ----- 修改公式编号
-\renewcommand\theequation{\ifnum \c@chapter>\z@ \thechapter-\fi\@arabic\c@equation}
+\renewcommand\theequation{%
+  \ifnum \c@chapter>\z@ \thechapter-\fi\@arabic\c@equation}
 
 % ----- 公式参数解释
-\newenvironment{note}{%
-  \noindent\makebox[3em][l]{式中}%
-  \begin{minipage}[t]{100mm}\begingroup
-}{\endgroup\end{minipage}
-  \par\vspace{6pt}
-}
-\newcommand{\para}[2]{%
-  % 先建盒子再换行会产生badbox警告(Underfull \box)
-  \par\makebox[1em][c]{#1} --- #2
+% tabularx: P4
+% http://mirrors.ibiblio.org/CTAN/macros/latex/required/tools/tabularx.pdf
+\newenvironment{note}{
+  \noindent\makebox[2em][l]{式中}%
+  \tabularx{\textwidth-2em}[t]{r@{\;------\;}X}
+}{\endtabularx
+  \par\vspace{5pt}
 }
 
 
