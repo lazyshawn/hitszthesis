@@ -72,10 +72,10 @@ Here is the structure of this project after loading demo:
 ├─ appendix                   % 附录
 │  └─ ...                     
 │
-├─ main
+├─ main                       % 正文部分
 │  ├─ abstract.tex            % 摘要
 │  ├─ introduction.tex        % 绪论
-│  ├─ demo.tex                    
+│  ├─ demo.tex                % 示例
 │  ├─ ...                     
 │  └─ acknowledgment.tex      % 致谢
 │                             
@@ -139,7 +139,7 @@ Email: 20s053030@stu.hit.edu.cn
 ## Recent efforts
 * [ ] Finish the Demo and Manual.
 * [x] Modify compile scripts.
-* [ ] Listing environment.
+* [x] Listing environment.
 * [ ] Pseudo code.
 
 
@@ -148,5 +148,5 @@ I would really appreciate it if you could financially support this project.
 
 | WeChat  | Alipay |
 |-|-|
-| <img src="https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/wechat.jpg" width = "900" alt="wechat" align=center /> | <img src="https://raw.githubusercontent.com/lazyshawn/hitszthesis_master/master/demo/pics/alipay.jpg" width = "900" alt="alipay" align=center /> |
+| <img src="https://gitee.com/lazyshawn/piclink/raw/master/payment/wechat.jpg" width = "900" alt="wechat" align=center /> | <img src="https://gitee.com/lazyshawn/piclink/raw/master/payment/alipay.jpg" width = "900" alt="alipay" align=center /> |
 
