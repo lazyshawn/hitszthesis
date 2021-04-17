@@ -406,10 +406,9 @@
   % 输入参数为所有关键字
   \renewcommand{\hitsz@token@keywords}{#1}
   \par\vspace{\baselineskip}
-  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords：}%
-  \begin{minipage}[t]{120mm}{
+  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords}%
+  \begin{minipage}[t]{120mm}
     \hitsz@token@keywords
-  }
   \end{minipage}
 }
 
@@ -421,10 +420,9 @@
 \newcommand\enkeyword[1]{%
   \renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vspace{\baselineskip}
-  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords：}%
-  \begin{minipage}[t]{120mm}{
+  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords}%
+  \begin{minipage}[t]{120mm}
     \hitsz@token@enkeywords
-  }
   \end{minipage}
 }
 
@@ -473,7 +471,7 @@
 % 控制英文目录：细点\@dottedtocline，粗点\@dottedtoclinebold
   \def\l@chapter{\@dottedtocline{0}{0em}{5em}}
   \@restonecolfalse
-  \chapter*{\hitsz@cap@encontents}
+  \chapter*{\bfseries\hitsz@cap@encontents}
   \@mkboth{\hitsz@cap@encontents}{\hitsz@cap@encontents}%
   \@starttoc{entoc}%
   \if@restonecol\twocolumn\fi
@@ -490,8 +488,8 @@
     \IfNoValueTF{#4}{% if english caption
       \hitsz@chapter*{#3}
     }{\hitsz@chapter*{#3}
-      % 此处添加保护选项
-      \addcontentsline{toc}{chapter}{\texorpdfstring{\bfseries #3}{#3}}
+      % 此处可以添加条目在目录的格式
+      \addcontentsline{toc}{chapter}{\texorpdfstring{#3}{#3}}
       \addcontentsline{entoc}{chapter}{\texorpdfstring{\bfseries #4}{#4}}
     }
   }{\IfNoValueTF{#2}%	if \chapter
@@ -860,6 +858,7 @@
 
 % ----- 中期报告封面
 \newcommand{\hitsz@maketitle@midterm}{
+  \if@openright\cleardoublepage\else\clearpage\fi
   \begin{center}
     \parbox[t][6.13cm][t]{\textwidth}{%
       \centering\vspace{65pt}
@@ -911,14 +910,16 @@
 
 % ----- 封面一
 \newcommand{\hitsz@maketitle@cover}{
+  \if@openright\cleardoublepage\else\clearpage\fi
   \begin{center}
     % 论文信息
-    \parbox[t][19.05cm][t]{\textwidth}{%
+    \parbox[t][18.75cm][t]{\textwidth}{%
       \begin{center}
         \vspace{16pt}
-        \zihao{-1}\song\bfseries \hitsz@info@doctorthesis\par
+        \zihao{-1}{\song\bfseries\hitsz@info@doctorthesis}\par
         \vspace{44pt}
-        \zihao{2}\song{\hitsz@info@title}\par
+        \zihao{2}{\heiti\hitsz@info@titleA}\par
+        \zihao{2}{\heiti\hitsz@info@titleB}\par
         \vspace{42pt}
         \zihao{2}\textbf{\hitsz@info@entitle}\par
         \vspace{42pt}
@@ -950,11 +951,12 @@
     }
 
     % 标题
-    \parbox[t][9.4cm][t]{\textwidth}{%
+    \parbox[t][255pt][t]{\textwidth}{%
       \begin{center}
         \zihao{-2}\song\textbf{工学\hitsz@info@doctorthesis}
         \par\vspace{42pt}
-        \zihao{2}\heiti{\hitsz@info@title}
+        \zihao{2}\heiti\hitsz@info@titleA\par
+        \hitsz@info@titleB
       \end{center}
     }
   \end{center}
@@ -990,7 +992,7 @@
 
   \begin{center}
     \vspace{32pt}
-    \parbox[t][11.2cm][t]{\textwidth}{%
+    \parbox[t][323pt][t]{\textwidth}{%
       \begin{center}
         \renewcommand*{\baselinestretch}{1}% 行距设置
         \zihao{-2}{
@@ -1003,7 +1005,7 @@
       \end{center}
     }
     \zihao{4}\hspace{-40pt}
-    \renewcommand{\arraystretch}{0.89} %表格间距
+    \renewcommand{\arraystretch}{0.88} %表格间距
     \begin{tabular}{@{}l@{\hspace{1em}}l@{}}%
       \bfseries Candidate: & \hitsz@info@enauthor \\
       \bfseries Supervisor: & \hitsz@info@enteacher \\
