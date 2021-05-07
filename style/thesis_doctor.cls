@@ -1,4 +1,4 @@
-%! TEX root = ./main.tex
+%! TEX root = ../main.tex
 
 %===========================================================================%
 %->> Shawn's personal template.
@@ -47,7 +47,6 @@
 \ProcessOptions\relax%
 
 
-
 %===========================================================================%
 %->> LoadClass
 %===========================================================================%
@@ -88,16 +87,7 @@
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
 \usetikzlibrary{calc}       % tikz计算宏包
-
-
-% ----- 字体设置(宏包顺序可能导致字体问题)
-\PassOptionsToPackage{quiet}{xeCJK}
-% heading选项用以启用章节标题的格式设置功能
-\RequirePackage[UTF8,heading]{ctex}
-\RequirePackage[OT1]{fontenc}
-\RequirePackage{fontspec}
-\RequirePackage{xpatch}
-\RequirePackage{mathptmx}   % 使用Times new romans
+\RequirePackage{style/fontSetting} % 自定义的中文字体设置，记得最后导入
 
 
 %===========================================================================%
@@ -129,33 +119,6 @@
     footskip=8true mm,
   }
 \fi
-
-
-%===========================================================================%
-%->> Font Settings
-%===========================================================================%
-% ----- 基础字族
-\setsansfont{Arial}   % 西文默认无衬线字体(sans serif)
-\setCJKfamilyfont{kai}[AutoFakeBold]{KaiTi}
-\newcommand*{\kai}{\CJKfamily{kai}}
-\setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
-\newcommand*{\song}{\CJKfamily{song}}
-\setCJKmainfont[BoldFont={SimHei}, ItalicFont={KaiTi}, BoldItalicFont={SimSun}]{SimSun}
-% \setCJKfamilyfont{xinwei}[AutoFakeBold]{stxinwei.ttf}
-% \newcommand*{\xinwei}{\CJKfamily{xinwei}}
-
-
-% ----- 字号设置
-% 常规字号
-\renewcommand\normalsize{%
-	\@setfontsize\normalsize{12.05}{14.45}%
-	\abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
-	\abovedisplayshortskip \z@ \@plus3\p@
-	\belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@}
-
-\setlength\parindent{2em}   % 每行缩进两个汉字
-\renewcommand*{\baselinestretch}{1.38}% 行距设置
-\ziju{0.076} % 调整汉字间距
 
 
 %===========================================================================%

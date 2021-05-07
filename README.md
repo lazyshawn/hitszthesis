@@ -7,6 +7,7 @@ You can check the screenshots at [pics/demo\_x.png](
 https://github.com/lazyshawn/hitszthesis_master/tree/master/demo/pics).
 
 ## Usage
+> For Windows users, [git-bash](https://gitforwindows.org/) are highly recommended.
 1. Download repository.
 ```shell
 git clone https://github.com/lazyshawn/hitszthesis_master.git
@@ -137,7 +138,7 @@ Email: 20s053030@stu.hit.edu.cn
 
 
 ## Recent efforts
-* [ ] Finish the Demo and Manual.
+* [x] Finish the Demo and Manual.
 * [x] Modify compile scripts.
 * [x] Listing environment.
 * [ ] Pseudo code.
