@@ -1,5 +1,5 @@
 
-## hitszthesis\_master
+## hitszthesis
 This project is a dissertation template for masters and doctors
 in Harbin Institute of Technology, ShenZhen (HITSZ).
 
@@ -10,7 +10,7 @@ https://github.com/lazyshawn/hitszthesis_master/tree/master/demo/pics).
 > For Windows users, [git-bash](https://gitforwindows.org/) are highly recommended.
 1. Download repository.
 ```shell
-git clone https://github.com/lazyshawn/hitszthesis_master.git
+git clone https://github.com/lazyshawn/hitszthesis.git
 ```
 
 2. Load demo (optional).
@@ -18,13 +18,13 @@ git clone https://github.com/lazyshawn/hitszthesis_master.git
 These commands will get a copy of a default project to current path,
 which may help you get started.
 ```shell
-cd hitszthesis_master
+cd hitszthesis
 bash thesis.sh -l
 ```
 
 3. Code your tex project.
 > For more information, please refer to [tutorial.md](
-https://github.com/lazyshawn/hitszthesis_master/blob/master/tutorial.md).
+https://github.com/lazyshawn/hitszthesis/blob/master/tutorial.md).
 
 In the case that you are using the default project,
 you should modify a tex file named `preamble.tex` to fill your information,
