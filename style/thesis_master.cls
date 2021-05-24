@@ -493,20 +493,23 @@
 %===========================================================================%
 % 使用style/gbt7714宏包可默认选择unsrt文献格式
 % \bibliographystyle{unsrt}
+% 重定义参考文献命令
+% 参考文献编号
+\renewcommand\@biblabel[1]{［#1］\hfill}
 \renewenvironment{thebibliography}[1]{
   \ctexset{chapter/numbering=false}
   \chapter*{\hitsz@cap@ref}[\hitsz@cap@enref]%
   \@mkboth{\MakeUppercase\hitsz@cap@ref}{\MakeUppercase\hitsz@cap@ref}%
 
   \normalsize
-  \list{\@biblabel{\@arabic\c@enumiv}}%
-   {\settowidth\labelwidth{\@biblabel{#1}}%
-    \setlength{\labelsep}{0.5em}
+  \list{\@biblabel{\@arabic\c@enumiv}}{%
+    % 当用中文括号［#1］时，序号一百以上的参考文献缩进出现问题。
+    % 加上一定非空字符后长度正确(如下方的x)。原理未知。
+    \settowidth\labelwidth{\@biblabel{#1}x}%
+    \setlength{\labelsep}{0em}
     \setlength{\itemindent}{0pt}
     \setlength{\leftmargin}{\labelsep+\labelwidth}
     \addtolength{\itemsep}{-0.8em}
-    \leftmargin\labelwidth
-    \advance\leftmargin\labelsep
     \@openbib@code
     \usecounter{enumiv}%
     \let\p@enumiv\@empty
@@ -522,6 +525,36 @@
     {\@latex@warning{Empty `thebibliography' environment}}%
     \endlist
 }
+
+% \renewenvironment{thebibliography}[1]{
+%   \ctexset{chapter/numbering=false}
+%   \chapter*{\hitsz@cap@ref}[\hitsz@cap@enref]%
+%   \@mkboth{\MakeUppercase\hitsz@cap@ref}{\MakeUppercase\hitsz@cap@ref}%
+%
+%   \normalsize
+%   \list{\@biblabel{\@arabic\c@enumiv}}%
+%    {\settowidth\labelwidth{\@biblabel{#1}}%
+%     \setlength{\labelsep}{0.5em}
+%     \setlength{\itemindent}{0pt}
+%     \setlength{\leftmargin}{\labelsep+\labelwidth}
+%     \addtolength{\itemsep}{-0.8em}
+%     \leftmargin\labelwidth
+%     \advance\leftmargin\labelsep
+%     \@openbib@code
+%     \usecounter{enumiv}%
+%     \let\p@enumiv\@empty
+%     \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+%   \sloppy\frenchspacing
+%   \flushbottom
+%   \clubpenalty4000
+%   \@clubpenalty \clubpenalty
+%   \widowpenalty4000%
+%   \sfcode`\.\@m
+%   }
+%   {\def\@noitemerr
+%     {\@latex@warning{Empty `thebibliography' environment}}%
+%     \endlist
+% }
 
 
 %===========================================================================%

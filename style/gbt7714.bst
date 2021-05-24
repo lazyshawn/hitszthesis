@@ -73,6 +73,7 @@ STRINGS {                                         % //  declare global String va
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % define global static constants
+% 应 HITsz 要求，方括号[]改为［］。
 FUNCTION {true} 				{#1}
 FUNCTION {false} 				{#0}
 FUNCTION {debug.enabled} 		{true}
@@ -82,10 +83,10 @@ FUNCTION {cap.edition.en} 		{"~ed"}
 FUNCTION {cap.edition.zh} 		{"版"}
 FUNCTION {cap.anonymous.en} 	{"Anon"}
 FUNCTION {cap.anonymous.zh} 	{"佚名"}
-FUNCTION {cap.no.address.en} 	{"[S.l.]"}
-FUNCTION {cap.no.address.zh} 	{"[出版地不详]"}
-FUNCTION {cap.no.publisher.en} 	{"[s.n.]"}
-FUNCTION {cap.no.publisher.zh} 	{"[出版者不详]"}
+FUNCTION {cap.no.address.en} 	{"［S.l.］"}
+FUNCTION {cap.no.address.zh} 	{"［出版地不详］"}
+FUNCTION {cap.no.publisher.en} 	{"［s.n.］"}
+FUNCTION {cap.no.publisher.zh} 	{"［出版者不详］"}
 FUNCTION {cap.et.al.en} 		{", et~al"}
 FUNCTION {cap.et.al.zh} 		{", 等"}
 FUNCTION {cap.translate.en} 	{"~trans"}
@@ -332,13 +333,13 @@ FUNCTION {add.brace} {                            % String Entry::add_brace(Stri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {add.bracket} {                          % String Entry::bracket(String str) {
-  "(" swap$ * ")" *                               %   return "(" + str + ")";
+  "(" swap$ * "）" *                               %   return "(" + str + ")";
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {add.squarebracket} {                    % String Entry::add_squarebracket(String str) {
-  "[" swap$ * "]" *                               %   return "[" + str + "]";
+  "［" swap$ * "］" *                               %   return "[" + str + "]";
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -697,7 +698,7 @@ FUNCTION {format.booktitle} {                     % String Emtry::format_booktit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.mark} {                          % String Emtry::format_mark(String mark) {
-  "[" swap$ * "]" *                               %   mark = "[" + mark + "]";
+  "\,［" swap$ * "］" *                               %   mark = "[" + mark + "]";
   "mark" format.bibinfo                           %   return format_bibinfo(mark, "mark");
 }                                                 % }
                                                   %
