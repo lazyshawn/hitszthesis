@@ -197,7 +197,8 @@
 }
 \fancypagestyle{fancy@front}{\fancyhf{}%
   \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
-  \fancyhead[C]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@masterthesis}
+  \fancyhead[C]{\song\zihao{-5}
+  \hitsz@info@school 工学 \hitsz@info@master \hitsz@info@thesis}
   % 双页眉线
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
@@ -210,7 +211,8 @@
   \ifhitsz@midterm
     \fancyhead[C]{\song\zihao{-5} \hitsz@info@school （深圳）中期报告}
   \else
-    \fancyhead[C]{\song\zihao{-5} \hitsz@info@school 工学 \hitsz@info@masterthesis}
+    \fancyhead[C]{\song\zihao{-5}
+    \hitsz@info@school 工学 \hitsz@info@master \hitsz@info@thesis}
   \fi
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
@@ -278,7 +280,7 @@
 	\renewcommand{\hitsz@token@keywords}{#1}
 	\par
   \vspace{\baselineskip}
-  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords：}%
+  \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords}%
   \begin{minipage}[t]{120mm}{
     \hitsz@token@keywords
   }
@@ -293,7 +295,7 @@
 \newcommand\enkeyword[1]{%
 	\renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vskip2ex
-  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords：}%
+  \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords}%
   \begin{minipage}[t]{120mm}{
     \hitsz@token@enkeywords
   }
@@ -578,26 +580,42 @@
 \newlist{listNormal}{enumerate}{3}
 \setlist[listNormal]{
   font       = \normalsize,
-  labelsep   = .5em,
+  labelsep   = .6em,
   leftmargin = 0pt,
-  itemindent = 3em,
+  itemindent = 3.4em,
   partopsep  = 0pt,
   topsep     = 0pt,
   itemsep    = 0pt,
   parsep     = 0pt,
 }
 \setlist[listNormal,1,2,3]{%
-  label = (\arabic*),
+  label = \arabic*.,
+  ref   = \arabic*,
+}
+% --- 正文中的排序列表
+\newlist{listParentheses}{enumerate}{3}
+\setlist[listParentheses]{
+  font       = \normalsize,
+  labelsep   = 0em,
+  leftmargin = 0pt,
+  itemindent = 4.6em,
+  partopsep  = 0pt,
+  topsep     = 0pt,
+  itemsep    = 0pt,
+  parsep     = 0pt,
+}
+\setlist[listParentheses,1,2,3]{%
+  label = （\arabic*）,
   ref   = \arabic*,
 }
 % 发表论文及其他成果章节中的列表
 \newlist{listSquare}{enumerate}{1}
 \setlist[listSquare,1]{
-  label = [\arabic*],
+  label = ［\arabic*］,
   ref = \arabic*,
   font=\normalsize,
-  labelsep = 1.2em, 
-  leftmargin = 28.5pt,
+  labelsep = .6em, 
+  leftmargin = 38pt,
   itemindent = 0em,
   partopsep = 0pt, 
   topsep = 5pt, 
@@ -652,13 +670,17 @@
 }
 
 % ----- 子图
-\renewcommand*{\thesubfigure}{\ \alph{subfigure})}
+\renewcommand*{\thesubfigure}{(\alph{subfigure})}
 \captionsetup[subfigure]{%
-	format=hang,
+	% format=hang,
   labelformat=simple,
-	labelsep=space,
-	font={song,wuhao},
-	position=bottom
+  labelsep=space,
+  font={song,wuhao},
+  position=bottom,
+  margin=34pt,
+  hangindent=10pt,
+  indention=20pt,
+  singlelinecheck=false,
 }
 
 % ----- 表格
@@ -720,7 +742,7 @@
   \renewcommand{\arraystretch}{1.37} %表格间距
   \begin{tabular}{@{\song}r@{ }@{}l@{}}%
     \textbf{院\hfill{}\makebox[33pt][s]{（系）}} & \hitsz@cmd@uline{\hitsz@info@department} \\
-     \textbf{学\hfill{}科} & \hitsz@cmd@uline{\hitsz@info@speciality} \\
+     \textbf{学\hfill{}科} & \hitsz@cmd@uline{\hitsz@info@specialty} \\
      \textbf{导\hfill{}师} & \hitsz@cmd@uline{\hitsz@info@teacher} \\
      \textbf{研\hfill{}究\hfill{}生} & \hitsz@cmd@uline{\hitsz@info@author} \\
      \textbf{学\hfill{}号} & \hitsz@cmd@uline{\hitsz@info@studentid} \\
@@ -734,15 +756,17 @@
 \newcommand{\hitsz@maketitle@cover}{
   \begin{center}
     % 论文信息
-    \parbox[t][19.05cm][t]{\textwidth}{%
+    \parbox[t][19.35cm][t]{\textwidth}{%
       \begin{center}
-        \vspace{16pt}
+        \vspace{28pt}
         \zihao{-1}\song\bfseries 硕士学位论文\par
-        \vspace{44pt}
+        \vspace{26pt}
+        \zihao{-2}\song\bfseries （\hitsz@info@degreetype \hitsz@info@thesis）\par
+        \vspace{35pt}
         \zihao{2}\song{\hitsz@info@title}\par
         \vspace{42pt}
-        \zihao{2}\textbf{\hitsz@info@entitle}\par
-        \vspace{42pt}
+        \zihao{-2}\textbf{\hitsz@info@entitle}\par
+        \vspace{54pt}
         \zihao{2}\song\textbf{\hitsz@info@author}\par
       \end{center}
     }
@@ -761,11 +785,11 @@
   \begin{center}
     \parbox[t][4.0cm][t]{\textwidth}{%
         \setlength{\baselineskip}{16pt}  % 设置特殊行间距
-        国内图书分类号：
+        国内图书分类号： \hitsz@info@classification
         \hfill
         学校代码：\makebox[3em][l]{10213}
         \par
-        国际图书分类号：
+        国际图书分类号： \hitsz@info@enclassification
         \hfill
         密级：\makebox[3em][l]{公开}
     }
@@ -773,7 +797,7 @@
     % 标题
     \parbox[t][9.4cm][t]{\textwidth}{%
       \begin{center}
-        \zihao{-2}\song\textbf{工学\hitsz@info@doctorthesis}
+        \zihao{-2}\song\textbf{工学\hitsz@info@master\hitsz@info@thesis}
         \par\vspace{42pt}
         \zihao{2}\heiti{\hitsz@info@title}
       \end{center}
@@ -787,7 +811,7 @@
     \heiti 硕\hfill{}士\hfill{}研\hfill{}究\hfill{}生 & \hitsz@info@author \\
     \heiti 导\hfill{}师 & \hitsz@info@teacher  \\
     \heiti 申\hfill{}请\hfill{}学\hfill{}位 & 工学硕士 \\
-    \heiti 学\hfill{}科 & \hitsz@info@speciality \\
+    \heiti 学\hfill{}科 & \hitsz@info@specialty \\
     \heiti 所\hfill{}在\hfill{}单\hfill{}位 & \hitsz@info@school \hitsz@token@shenzhen \\
     \heiti 答\hfill{}辩\hfill{}日\hfill{}期 & \hitsz@info@defensedate \\
     \heiti 授予学位单位 & \hitsz@info@school \\
@@ -807,8 +831,8 @@
   \hspace{-24pt}
   \begin{minipage}[t]{10\ccwd}
     \zihao{-4}
-    Classified Index: \\
-    U.D.C: 
+    Classified Index: \hitsz@info@classification\\
+    U.D.C: \hitsz@info@enclassification
   \end{minipage}
 
   \begin{center}
@@ -831,10 +855,10 @@
       \bfseries Candidate: & \hitsz@info@enauthor \\
       \bfseries Supervisor: & \hitsz@info@enteacher \\
       \bfseries Academic Degree Applied for: & Master of Engineering \\
-      \bfseries Speciality: & Mechanical Manufacturing and \\
+      \bfseries Specialty: & Mechanical Manufacturing and \\
                             & Automation \\
       \bfseries Affiliation: & \hitsz@info@enschool, Shenzhen \\
-      \bfseries Data of Defence: & \hitsz@info@endefensedate \\
+      \bfseries Data of Defense: & \hitsz@info@endefensedate \\
       \bfseries Degree-Conferring-Institution: & \hitsz@info@enschool \\
     \end{tabular}
     \renewcommand{\arraystretch}{1} %表格间距

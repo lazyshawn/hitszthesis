@@ -223,7 +223,7 @@
 % ----- 正文区格式
 \fancypagestyle{fancy@main}{\fancyhf{}%
   \fancyfoot[C]{\zihao{5} -~\thepage~-}
-  \fancyhead[EC]{\song\zihao{-5}\hitsz@info@school 工学\hitsz@info@doctorthesis}
+  \fancyhead[EC]{\song\zihao{-5}\hitsz@info@school 工学\hitsz@info@doctor \hitsz@info@thesis}
   \fancyhead[OC]{\song\zihao{-5}\leftmark}
   % 双页眉线
   \renewcommand{\headrule}{%
@@ -828,7 +828,7 @@
       \zihao{2}\song
       \makebox[11em][s]{\textbf{\hitsz@info@school \hitsz@token@shenzhen}}\par
       \vspace{-6pt}
-      \makebox[15em][s]{\textbf{\hitsz@info@doctorthesis 中期检查报告}}\par
+      \makebox[15em][s]{\textbf{\hitsz@info@doctor \hitsz@info@thesis 中期检查报告}}\par
     }
 
     \vspace{50pt}
@@ -836,7 +836,7 @@
     \hitsz@cmd@duuline{入学时间}{\hitsz@info@enrollment}
     \hitsz@cmd@duuline{论文题目}{\hitsz@info@titleA}
     \hitsz@cmd@duuline{}{\hitsz@info@titleB}
-    \hitsz@cmd@duuline{学科专业}{\hitsz@info@speciality}
+    \hitsz@cmd@duuline{学科专业}{\hitsz@info@specialty}
     \hitsz@cmd@duuline{中期报告时间}{\hitsz@info@defensedate}
     \hitsz@cmd@duuline{导师}{\hitsz@info@teacher}
   \end{center}
@@ -879,7 +879,7 @@
     \parbox[t][18.75cm][t]{\textwidth}{%
       \begin{center}
         \vspace{16pt}
-        \zihao{-1}{\song\bfseries\hitsz@info@doctorthesis}\par
+        \zihao{-1}{\song\bfseries\hitsz@info@doctor \hitsz@info@thesis}\par
         \vspace{44pt}
         \zihao{2}{\heiti\hitsz@info@titleA}\par
         \zihao{2}{\heiti\hitsz@info@titleB}\par
@@ -904,11 +904,11 @@
   \begin{center}
     \parbox[t][4.0cm][t]{\textwidth}{%
         \setlength{\baselineskip}{16pt}  % 设置特殊行间距
-        国内图书分类号：
+        国内图书分类号： \hitsz@info@classification
         \hfill
         学校代码：\makebox[3em][l]{10213}
         \par
-        国际图书分类号：
+        国际图书分类号： \hitsz@info@enclassification
         \hfill
         密级：\makebox[3em][l]{公开}
     }
@@ -916,7 +916,7 @@
     % 标题
     \parbox[t][255pt][t]{\textwidth}{%
       \begin{center}
-        \zihao{-2}\song\textbf{工学\hitsz@info@doctorthesis}
+        \zihao{-2}\song\textbf{工学\hitsz@info@doctor \hitsz@info@thesis}
         \par\vspace{42pt}
         \zihao{2}\heiti\hitsz@info@titleA\par
         \hitsz@info@titleB
@@ -931,7 +931,7 @@
     \heiti 博\hfill{}士\hfill{}研\hfill{}究\hfill{}生 & \hitsz@info@author \\
     \heiti 导\hfill{}师 & \hitsz@info@teacher \\
     \heiti 申\hfill{}请\hfill{}学\hfill{}位 & 工学硕士 \\
-    \heiti 学\hfill{}科 & \hitsz@info@speciality \\
+    \heiti 学\hfill{}科 & \hitsz@info@specialty \\
     \heiti 所\hfill{}在\hfill{}单\hfill{}位 & \hitsz@info@school \hitsz@token@shenzhen \\
     \heiti 答\hfill{}辩\hfill{}日\hfill{}期 & \hitsz@info@defensedate \\
     \heiti 授予学位单位 & \hitsz@info@school \\
@@ -973,7 +973,7 @@
       \bfseries Candidate: & \hitsz@info@enauthor \\
       \bfseries Supervisor: & \hitsz@info@enteacher \\
       \bfseries Academic Degree Applied for: & Master of Engineering \\
-      \bfseries Speciality: & Mechanical Manufacturing and \\
+      \bfseries Specialty: & Mechanical Manufacturing and \\
                             & Automation \\
       \bfseries Affiliation: & \hitsz@info@enschool, Shenzhen \\
       \bfseries Data of Defence: & \hitsz@info@endefensedate \\

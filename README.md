@@ -1,13 +1,14 @@
 
-## hitszthesis
+## ✨ hitszthesis
 This project is a dissertation template for masters and doctors
 in Harbin Institute of Technology, ShenZhen (HITSZ).
 
 You can check the screenshots at [pics/demo\_x.png](
 https://github.com/lazyshawn/hitszthesis_master/tree/master/demo/pics).
 
-## Usage
+## ✨ Usage
 > For Windows users, [git-bash](https://gitforwindows.org/) are highly recommended.
+
 1. Download repository.
 ```shell
 git clone https://github.com/lazyshawn/hitszthesis.git
@@ -54,15 +55,17 @@ git pull origin master
 ```
 
 
-## Documentation
+## ✨ Documentation
 Here is the structure of this project after loading demo:
 ```git
 │
 ├─ style
 │  ├─ gbt7714.bst             % 参考文献格式
 │  ├─ gbt7714.sty             % 参考文献格式宏包
-│  ├─ hitszthesis_master.cls  % 文档类
-│  └─ hitszthesis_master.cfg  % 文档类常量设置
+│  ├─ fontSetting.sty         % 字体设置宏包
+│  ├─ thesis.cfg              % 文档类常量设置
+│  ├─ thesis_master.cls       % 硕士论文格式文档类
+│  └─ thesis_doctor.cls       % 博士论文格式文档类
 │
 ├─ demo                       % 存放示例文件
 │  └─ ...                     
@@ -83,12 +86,14 @@ Here is the structure of this project after loading demo:
 ├─ main.tex                   % 主函数
 ├─ preamble.tex               % 导言区设置
 ├─ thesis.sh                  % 脚本文件
+├─ tutorial.md                % 帮助文档
 ├─ README.md
+├─ LICENSE
 └─ ...                        % 编译过程文件
 ```
 
 
-## Tex
+## ✨ Tex
 Files under `style` are the class files, **do not** delete or edit them. 
 You need to load the documentclass in your main.tex,
 using `\documentclass{style/<thesis>}`.
@@ -101,7 +106,7 @@ including them in `main.tex`.
 Folder `pics` and `appendix` is used to store your pics and appendices respectively.
 
 
-## Code & Compile
+## ✨ Code & Compile
 1. Coding: UTF-8;
 1. Using **xelatex** as your complier. 
 Run `xelatex` and `bibtex` once to define citations and references.
@@ -115,7 +120,7 @@ bash thesis.sh -b
 ```
 
 
-## Scripts manual
+## ✨ Scripts manual
 A script is offered to make work easier.
 ```bash
 bash thesis.sh [option]
@@ -128,23 +133,22 @@ bash thesis.sh [option]
 | `-c` / `--clean`            | Clean process files |
 
 
-## Features
+## ✨ About hitszthesis
+### Features
 * Easy to use.
 * Correct format.
 * Update in time.
 
-## Contacts
-Email: 20s053030@stu.hit.edu.cn
-
-
-## Recent efforts
+### Recent efforts
 * [x] Finish the Demo and Manual.
 * [x] Modify compile scripts.
 * [x] Listing environment.
 * [ ] Pseudo code.
 
+### Contacts
+Email: 20s053030@stu.hit.edu.cn
 
-## Donation
+### Donation
 I would really appreciate it if you could financially support this project.
 
 | WeChat  | Alipay |
