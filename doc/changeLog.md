@@ -4,8 +4,22 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
+### 210526
+> commit
+[]()
+
+日常维护。
+1. 补充了说明文档。
+1. 脚本修改为用 `latexmk` 编译。
+1. 添加了行内引用命令 `\inlinecite{foo}`。
+
+
 ### 210524
-> commit [ba9bb24](), []()
+> commit
+[7c9b03d](
+https://github.com/lazyshawn/hitszthesis/commit/2724dc38a52d08d6004452fb89a725092436e15a),
+[ba9bb24](
+https://github.com/lazyshawn/hitszthesis/commit/ba9bb24fbc0630abaca8881610b13853ecd3fba0)
 
 根据学校新模板修改部分格式。
 1. 外封加上学位类型，区分学硕/专硕。

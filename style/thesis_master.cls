@@ -526,36 +526,6 @@
     \endlist
 }
 
-% \renewenvironment{thebibliography}[1]{
-%   \ctexset{chapter/numbering=false}
-%   \chapter*{\hitsz@cap@ref}[\hitsz@cap@enref]%
-%   \@mkboth{\MakeUppercase\hitsz@cap@ref}{\MakeUppercase\hitsz@cap@ref}%
-%
-%   \normalsize
-%   \list{\@biblabel{\@arabic\c@enumiv}}%
-%    {\settowidth\labelwidth{\@biblabel{#1}}%
-%     \setlength{\labelsep}{0.5em}
-%     \setlength{\itemindent}{0pt}
-%     \setlength{\leftmargin}{\labelsep+\labelwidth}
-%     \addtolength{\itemsep}{-0.8em}
-%     \leftmargin\labelwidth
-%     \advance\leftmargin\labelsep
-%     \@openbib@code
-%     \usecounter{enumiv}%
-%     \let\p@enumiv\@empty
-%     \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-%   \sloppy\frenchspacing
-%   \flushbottom
-%   \clubpenalty4000
-%   \@clubpenalty \clubpenalty
-%   \widowpenalty4000%
-%   \sfcode`\.\@m
-%   }
-%   {\def\@noitemerr
-%     {\@latex@warning{Empty `thebibliography' environment}}%
-%     \endlist
-% }
-
 
 %===========================================================================%
 %->> Appendix

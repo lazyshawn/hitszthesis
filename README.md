@@ -59,22 +59,15 @@ git pull origin master
 Here is the structure of this project after loading demo:
 ```git
 │
-├─ style
-│  ├─ gbt7714.bst             % 参考文献格式
-│  ├─ gbt7714.sty             % 参考文献格式宏包
-│  ├─ fontSetting.sty         % 字体设置宏包
-│  ├─ thesis.cfg              % 文档类常量设置
-│  ├─ thesis_master.cls       % 硕士论文格式文档类
-│  └─ thesis_doctor.cls       % 博士论文格式文档类
+├─ appendix                   % 附录
+│  └─ ...                     
 │
 ├─ demo                       % 存放示例文件
 │  └─ ...                     
 │
-├─ pics                       % 存放图片
-│  └─ ...                     
-│
-├─ appendix                   % 附录
-│  └─ ...                     
+├─ doc
+│  ├─ changeLog.md            % 更新日志
+│  └─ tutorial.md             % 帮助文档
 │
 ├─ main                       % 正文部分
 │  ├─ abstract.tex            % 摘要
@@ -83,10 +76,23 @@ Here is the structure of this project after loading demo:
 │  ├─ ...                     
 │  └─ acknowledgment.tex      % 致谢
 │                             
+├─ pics                       % 存放图片
+│  └─ ...                     
+│
+├─ refs                       % 参考文献
+│  └─ ...                     
+│
+├─ style
+│  ├─ gbt7714.bst             % 参考文献格式
+│  ├─ gbt7714.sty             % 参考文献格式宏包
+│  ├─ fontSetting.sty         % 字体设置宏包
+│  ├─ thesis.cfg              % 文档类常量设置
+│  ├─ thesis_master.cls       % 硕士论文格式文档类
+│  └─ thesis_doctor.cls       % 博士论文格式文档类
+│
 ├─ main.tex                   % 主函数
 ├─ preamble.tex               % 导言区设置
 ├─ thesis.sh                  % 脚本文件
-├─ tutorial.md                % 帮助文档
 ├─ README.md
 ├─ LICENSE
 └─ ...                        % 编译过程文件
@@ -140,6 +146,9 @@ bash thesis.sh [option]
 * Update in time.
 
 ### Recent efforts
+> Check [doc/changeLog.md](
+https://github.com/lazyshawn/hitszthesis/blob/master/doc/changeLog.md) for more details.
+
 * [x] Finish the Demo and Manual.
 * [x] Modify compile scripts.
 * [x] Listing environment.

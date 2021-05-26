@@ -51,22 +51,25 @@ saveDemo () {
 
 # Tex build: xelatex -> bibtex -> xelatex -> xelatex
 texBuild () {
-  echo -e "========== Xelatex No.1 =========="
-  xelatex $1.tex
-  checkError $?
-  echo -e "========== Compile references =========="
-  bibtex $1
-  checkError $?
-  echo -e "========== Xelatex No.2 =========="
-  xelatex $1.tex
-  checkError $?
-  echo -e "========== Xelatex No.3 =========="
-  xelatex $1.tex
+  # Run `latexmk -h` for help.
+  latexmk -xelatex $1
+  # echo -e "========== Xelatex No.1 =========="
+  # xelatex $1.tex
+  # checkError $?
+  # echo -e "========== Compile references =========="
+  # bibtex $1
+  # checkError $?
+  # echo -e "========== Xelatex No.2 =========="
+  # xelatex $1.tex
+  # checkError $?
+  # echo -e "========== Xelatex No.3 =========="
+  # xelatex $1.tex
 }
 
 
 # Tex clean
 texClean () {
+  # latexmk -CA
   rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.entoc *.xdv\
     *.synctex.gz *.fdb_latexmk  *.fls
   rm -rf */*.aux
