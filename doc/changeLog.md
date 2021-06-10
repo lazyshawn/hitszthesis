@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file (Since 2021.
 ## ✨ Logs
 ### 210526
 > commit
-[]()
+[2e2d98c](
+https://github.com/lazyshawn/hitszthesis/commit/2e2d98c44593a708cafe084d5b48034308130d7b)
 
 日常维护。
 1. 补充了说明文档。
@@ -16,7 +17,7 @@ All notable changes to this project will be documented in this file (Since 2021.
 
 ### 210524
 > commit
-[7c9b03d](
+[2724dc3](
 https://github.com/lazyshawn/hitszthesis/commit/2724dc38a52d08d6004452fb89a725092436e15a),
 [ba9bb24](
 https://github.com/lazyshawn/hitszthesis/commit/ba9bb24fbc0630abaca8881610b13853ecd3fba0)

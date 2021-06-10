@@ -25,7 +25,7 @@ bash thesis.sh -l
 
 3. Code your tex project.
 > For more information, please refer to [tutorial.md](
-https://github.com/lazyshawn/hitszthesis/blob/master/tutorial.md).
+https://github.com/lazyshawn/hitszthesis/blob/master/doc/tutorial.md).
 
 In the case that you are using the default project,
 you should modify a tex file named `preamble.tex` to fill your information,
@@ -153,6 +153,7 @@ https://github.com/lazyshawn/hitszthesis/blob/master/doc/changeLog.md) for more 
 * [x] Modify compile scripts.
 * [x] Listing environment.
 * [ ] Pseudo code.
+* [ ] Issues templates.
 
 ### Contacts
 Email: 20s053030@stu.hit.edu.cn
