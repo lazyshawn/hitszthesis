@@ -57,7 +57,7 @@
 | `\studentid`          | 学号                           |
 | `\teacher`            | 导师名称, {中文名}{英文名}     |
 | `\department`         | 学院名称                       |
-| `\speciality`         | 专业名称                       |
+| `\speciality{}{}`     | 专业名称, {中文名}{英文名}     |
 | `\enrollment`         | 入学时间                       |
 | `\defensedate{}{}`    | 答辩时间, {中文}{英文}         |
 | `\classification{}{}` | 图书分类号, {国内}{国际}       |
@@ -99,13 +99,22 @@ $$ function(a,b) $$
 
 2. 图表
 
-demo 中有子图的设置例程。
+在 demo 中有子图的设置例程。
 ```tex
 % 双语图名
 \figCaption{label}{Chinese caption}{English caption}
 % 双语表名
 \tabCaption{label}{Chinese caption}{English caption}
 ```
+
+表格内需要换行可以使用 `\tabincell{<align>}{<subtab>}` 命令。其中 `<align>` 为
+对齐方式，`<subtab>` 为单元格内的内容，以 `\\` 换行。在填写封面内的个人信息时可
+能会用到。
+```tex
+% Break line in a table.
+\tabincell{l}{foo \\ bar}
+```
+
 
 3. 列表
 

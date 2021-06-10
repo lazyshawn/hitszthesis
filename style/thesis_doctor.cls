@@ -972,9 +972,8 @@
     \begin{tabular}{@{}l@{\hspace{1em}}l@{}}%
       \bfseries Candidate: & \hitsz@info@enauthor \\
       \bfseries Supervisor: & \hitsz@info@enteacher \\
-      \bfseries Academic Degree Applied for: & Master of Engineering \\
-      \bfseries Specialty: & Mechanical Manufacturing and \\
-                            & Automation \\
+      \bfseries Academic Degree Applied for: & Doctor of Engineering \\
+      \bfseries Specialty: & \hitsz@info@enspecialty\\
       \bfseries Affiliation: & \hitsz@info@enschool, Shenzhen \\
       \bfseries Data of Defence: & \hitsz@info@endefensedate \\
       \bfseries Degree-Conferring-Institution: & \hitsz@info@enschool \\

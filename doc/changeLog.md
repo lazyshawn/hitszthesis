@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
+### 210610
+> commit
+[]()
+
+日常维护。
+1. 完善说明文档。
+1. 添加表格内换行命令 `\tabincell{}{}`。解决英文封面专业名称的换行问题。
+
 ### 210526
 > commit
 [2e2d98c](

@@ -825,6 +825,8 @@
 
 
 % ----- 封面三
+% 表格内换行命令
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \newcommand{\hitsz@maketitle@entitlepage}{
   % 设置单页版面，消除盒子警告
   \newgeometry{
@@ -854,12 +856,11 @@
     }
     \zihao{4}\hspace{-40pt}
     \renewcommand{\arraystretch}{0.89} %表格间距
-    \begin{tabular}{@{}l@{\hspace{1em}}l@{}}%
+    \begin{tabular}{@{}l@{\hspace{1em}}p{235pt}@{}}%
       \bfseries Candidate: & \hitsz@info@enauthor \\
       \bfseries Supervisor: & \hitsz@info@enteacher \\
       \bfseries Academic Degree Applied for: & Master of Engineering \\
-      \bfseries Specialty: & Mechanical Manufacturing and \\
-                            & Automation \\
+      \bfseries Specialty: & \hitsz@info@enspecialty\\
       \bfseries Affiliation: & \hitsz@info@enschool, Shenzhen \\
       \bfseries Data of Defense: & \hitsz@info@endefensedate \\
       \bfseries Degree-Conferring-Institution: & \hitsz@info@enschool \\
