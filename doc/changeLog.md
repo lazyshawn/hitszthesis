@@ -4,9 +4,18 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
+### 210625
+> commit
+[](
+)
+
+1. `fix`: 子图图注格式修改: 单行文本居中，多行文本左右边界10pt，第二行开始缩进
+到编号之后。
+
 ### 210610
 > commit
-[]()
+[ec601d0](
+https://github.com/lazyshawn/hitszthesis/commit/ec601d04e81aafae2354148ec0c025871650c80d)
 
 日常维护。
 1. 完善说明文档。

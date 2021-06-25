@@ -760,15 +760,18 @@
 % ----- 子图
 \renewcommand*{\thesubfigure}{\ \alph{subfigure})}
 \captionsetup[subfigure]{%
-  % format=hang,
-  labelformat=simple,
-  labelsep=space,
   font={song,wuhao},
+  labelformat=simple,
+  % 单行图注不受影响
+  singlelinecheck=true,
+  % 缩进到编号之后
+  format=hang,
+  labelsep=space,
+  % 左右边界缩进
+  margin=10pt,
   position=bottom,
-  margin=34pt,
-  hangindent=10pt,
-  indention=20pt,
-  singlelinecheck=false,
+  captionskip=5pt,
+  farskip=5pt,
 }
 
 % ----- 表格
