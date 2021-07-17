@@ -870,8 +870,8 @@
     \end{tabular}
     \renewcommand{\arraystretch}{1} %表格间距
   \end{center}
-  % 恢复版面设置
-  \restoregeometry
+  % 恢复版面设置(中文摘要页的版面小于理论值)
+  % \restoregeometry
 }
 
 

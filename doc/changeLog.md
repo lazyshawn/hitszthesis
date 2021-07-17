@@ -4,10 +4,17 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
-### 210625
+### 210717
 > commit
 [](
 )
+
+1. `fix`: 临时修复了硕士中文摘要页的版心变小的问题。
+
+### 210625
+> commit
+[8cbeb0b](
+https://github.com/lazyshawn/hitszthesis/commit/8cbeb0b89c4d4e71a9271ab9bd902f9d3b1c8843)
 
 1. `fix`: 子图图注格式修改: 单行文本居中，多行文本左右边界10pt，第二行开始缩进
 到编号之后。
