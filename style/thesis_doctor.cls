@@ -664,26 +664,42 @@
 \newlist{listNormal}{enumerate}{3}
 \setlist[listNormal]{
   font       = \normalsize,
-  labelsep   = .5em,
+  labelsep   = .6em,
   leftmargin = 0pt,
-  itemindent = 3em,
+  itemindent = 3.4em,
   partopsep  = 0pt,
   topsep     = 0pt,
   itemsep    = 0pt,
   parsep     = 0pt,
 }
 \setlist[listNormal,1,2,3]{%
-  label = (\arabic*),
+  label = \arabic*.,
+  ref   = \arabic*,
+}
+% --- 正文中的排序列表
+\newlist{listParentheses}{enumerate}{3}
+\setlist[listParentheses]{
+  font       = \normalsize,
+  labelsep   = 0em,
+  leftmargin = 0pt,
+  itemindent = 4.6em,
+  partopsep  = 0pt,
+  topsep     = 0pt,
+  itemsep    = 0pt,
+  parsep     = 0pt,
+}
+\setlist[listParentheses,1,2,3]{%
+  label = （\arabic*）,
   ref   = \arabic*,
 }
 % 发表论文及其他成果章节中的列表
 \newlist{listSquare}{enumerate}{1}
 \setlist[listSquare,1]{
-  label = [\arabic*],
+  label = ［\arabic*］,
   ref = \arabic*,
   font=\normalsize,
-  labelsep = 1.2em, 
-  leftmargin = 28.5pt,
+  labelsep = .6em, 
+  leftmargin = 38pt,
   itemindent = 0em,
   partopsep = 0pt, 
   topsep = 5pt, 
@@ -945,6 +961,8 @@
 
 
 % ----- 封面三
+% 表格内换行命令
+\newcommand{\tabincell}[2]{\begin{tabular}[t]{@{}#1@{}}#2\end{tabular}}
 \newcommand{\hitsz@maketitle@entitlepage}{
   % 设置单页版面，消除盒子警告
   \newgeometry{left=30true mm}

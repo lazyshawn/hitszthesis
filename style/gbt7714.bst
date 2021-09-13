@@ -333,13 +333,14 @@ FUNCTION {add.brace} {                            % String Entry::add_brace(Stri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {add.bracket} {                          % String Entry::bracket(String str) {
-  "(" swap$ * "）" *                               %   return "(" + str + ")";
+  "(" swap$ * ")" *                               %   return "(" + str + ")";
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {add.squarebracket} {                    % String Entry::add_squarebracket(String str) {
-  "［" swap$ * "］" *                               %   return "[" + str + "]";
+  "[" swap$ * "]" *                               %   return "[" + str + "]";
+  % "［" swap$ * "］" *                               %   return "[" + str + "]";
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -698,7 +699,8 @@ FUNCTION {format.booktitle} {                     % String Emtry::format_booktit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
 FUNCTION {format.mark} {                          % String Emtry::format_mark(String mark) {
-  "\,［" swap$ * "］" *                               %   mark = "[" + mark + "]";
+  "\,[" swap$ * "]" *                               %   mark = "[" + mark + "]";
+  % "\,［" swap$ * "］" *                               %   mark = "[" + mark + "]";
   "mark" format.bibinfo                           %   return format_bibinfo(mark, "mark");
 }                                                 % }
                                                   %

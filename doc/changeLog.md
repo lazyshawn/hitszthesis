@@ -4,10 +4,21 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
-### 210717
+### 210913
 > commit
 [](
 )
+
+1. `fix`: 设置单元格内表格命令`\tabincell`顶端对齐，修复英文页面专业换行时垂
+直居中对齐问题。
+1. `revert`: 回滚了参考文献的宋体方括号。
+1. `feat`: 博士论文新增列表环境的格式。
+1. `chore`: 脚本新增删除文件夹下的过程文件。
+
+### 210717
+> commit
+[d671093](
+https://github.com/lazyshawn/hitszthesis/commit/d67109363c390f1e878b04f09d7f0b7a822a38dc)
 
 1. `fix`: 临时修复了硕士中文摘要页的版心变小的问题。
 

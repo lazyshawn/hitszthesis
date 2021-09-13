@@ -495,7 +495,8 @@
 % \bibliographystyle{unsrt}
 % 重定义参考文献命令
 % 参考文献编号
-\renewcommand\@biblabel[1]{［#1］\hfill}
+% \renewcommand\@biblabel[1]{［#1］\hfill}
+\renewcommand\@biblabel[1]{[#1]\hfill}
 \renewenvironment{thebibliography}[1]{
   \ctexset{chapter/numbering=false}
   \chapter*{\hitsz@cap@ref}[\hitsz@cap@enref]%
@@ -769,7 +770,7 @@
         \vspace{26pt}
         \zihao{-2}\song\bfseries （\hitsz@info@degreetype \hitsz@info@thesis）\par
         \vspace{35pt}
-        \zihao{2}\song{\hitsz@info@title}\par
+        \zihao{2}\song{\hitsz@info@titleA\par\hitsz@info@titleB}\par
         \vspace{42pt}
         \zihao{-2}\textbf{\hitsz@info@entitle}\par
         \vspace{54pt}
@@ -829,7 +830,7 @@
 
 % ----- 封面三
 % 表格内换行命令
-\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\tabincell}[2]{\begin{tabular}[t]{@{}#1@{}}#2\end{tabular}}
 \newcommand{\hitsz@maketitle@entitlepage}{
   % 设置单页版面，消除盒子警告
   \newgeometry{

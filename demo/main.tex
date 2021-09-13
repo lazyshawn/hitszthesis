@@ -5,10 +5,12 @@
 %->> Author: Lazyshawn
 %->> Coding: UTF-8
 %->> Contact: 20s053030@stu.hit.edu.cn
-%->> More: https://github.com/lazyshawn/hitszthesis_master.git
+%->> More: https://github.com/lazyshawn/hitszthesis.git
 %===========================================================================%
 
 % ==>> 模板设置
+% []: midterm 中期模板 | 空 毕业论文模板
+% {}: style/thesis_master 硕士模板 | style/thesis_doctor 博士模板
 \documentclass[midterm]{style/thesis_doctor}
 % \documentclass{style/thesis_doctor}
 
@@ -29,7 +31,7 @@
 %   \include{main/abstract}
 %   % --- Contents / 目录 ----
 %   \tableofcontents
-%   \tableofencontents
+%   \tableofencontents  % (博士)英文目录
 %
 %   % ===== Main | 正文部分 =====
 %   \mainmatter
@@ -39,6 +41,7 @@
 %   \include{main/demo}
 %   \include{main/conclusion}
 %   % --- Reference | 参考文献 ---
+%   \nocite{*} % 测试用
 %   \bibliography{refs/reference}
 %   % --- Publication | 发表的论文 ---
 %   \include{main/publication}
