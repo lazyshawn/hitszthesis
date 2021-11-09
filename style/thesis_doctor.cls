@@ -24,16 +24,18 @@
 
 
 %===========================================================================%
-%->> Condition
+%->> Condition & Constant
 %===========================================================================%
 \newif\ifhitsz@midterm\hitsz@midtermfalse
+\def\hitsz@info@degree{博士}
 
 
 %===========================================================================%
 %->> Declare Options
 %===========================================================================%
-\PassOptionsToClass{openany}{book}%
+% \PassOptionsToClass{openany}{book}%
 \PassOptionsToClass{twoside}{book}%
+\PassOptionsToClass{\CurrentOption}{book}
 \DeclareOption{midterm}{%
   \hitsz@midtermtrue
 }
@@ -82,7 +84,7 @@
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
-\RequirePackage{amsmath}    % 数学公式
+\RequirePackage{amsmath,amsfonts,amssymb}    % 数学公式
 \RequirePackage{tabularx}   % 表格自动列宽
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
@@ -223,7 +225,7 @@
 % ----- 正文区格式
 \fancypagestyle{fancy@main}{\fancyhf{}%
   \fancyfoot[C]{\zihao{5} -~\thepage~-}
-  \fancyhead[EC]{\song\zihao{-5}\hitsz@info@school 工学\hitsz@info@doctor \hitsz@info@thesis}
+  \fancyhead[EC]{\song\zihao{-5}\hitsz@info@school 工学\hitsz@info@degree \hitsz@info@thesis}
   \fancyhead[OC]{\song\zihao{-5}\leftmark}
   % 双页眉线
   \renewcommand{\headrule}{%
@@ -370,7 +372,7 @@
   \renewcommand{\hitsz@token@keywords}{#1}
   \par\vspace{\baselineskip}
   \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords}%
-  \begin{minipage}[t]{120mm}
+  \begin{minipage}[t]{132mm}
     \hitsz@token@keywords
   \end{minipage}
 }
@@ -384,7 +386,7 @@
   \renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vspace{\baselineskip}
   \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords}%
-  \begin{minipage}[t]{120mm}
+  \begin{minipage}[t]{128mm}
     \hitsz@token@enkeywords
   \end{minipage}
 }
@@ -750,8 +752,7 @@
 \DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
 % 设置图表搜索路径, 可以给图表文件夹取如下名字
 \graphicspath{
-  {contents/}{pics/}{imgs/}{main/pics/}
-  {front/pics/}{appendices/pics/}{back/pics/}
+  {contents/pics/}{contents/imgs/}{main/pics/}{main/imgs/}
 }
 % 图标题
 \renewcommand{\figurename}{图}
@@ -824,7 +825,7 @@
     \hitsz@maketitle@cover
     \hitsz@maketitle@titlepage
     \hitsz@maketitle@entitlepage
-    \mbox{}
+    % \mbox{}
   \fi
 }
 
@@ -847,7 +848,7 @@
       \zihao{2}\song
       \makebox[11em][s]{\textbf{\hitsz@info@school \hitsz@token@shenzhen}}\par
       \vspace{-6pt}
-      \makebox[15em][s]{\textbf{\hitsz@info@doctor \hitsz@info@thesis 中期检查报告}}\par
+      \makebox[15em][s]{\textbf{\hitsz@info@degree \hitsz@info@thesis 中期检查报告}}\par
     }
 
     \vspace{50pt}
@@ -898,7 +899,7 @@
     \parbox[t][18.75cm][t]{\textwidth}{%
       \begin{center}
         \vspace{16pt}
-        \zihao{-1}{\song\bfseries\hitsz@info@doctor \hitsz@info@thesis}\par
+        \zihao{-1}{\song\bfseries\hitsz@info@degree \hitsz@info@thesis}\par
         \vspace{44pt}
         \zihao{2}{\heiti\hitsz@info@titleA}\par
         \zihao{2}{\heiti\hitsz@info@titleB}\par
@@ -935,7 +936,7 @@
     % 标题
     \parbox[t][255pt][t]{\textwidth}{%
       \begin{center}
-        \zihao{-2}\song\textbf{工学\hitsz@info@doctor \hitsz@info@thesis}
+        \zihao{-2}\song\textbf{工学\hitsz@info@degree \hitsz@info@thesis}
         \par\vspace{42pt}
         \zihao{2}\heiti\hitsz@info@titleA\par
         \hitsz@info@titleB
@@ -971,7 +972,7 @@
   \begin{minipage}[t]{10\ccwd}
     \zihao{-4}
     Classified Index: \\
-    U.D.C: 
+    U.D.C:
   \end{minipage}
 
   \begin{center}
@@ -981,7 +982,7 @@
         \renewcommand*{\baselinestretch}{1}% 行距设置
         \zihao{-2}{
           A dissertation submitted in partial fulfillment of\par
-          the requirements for the academic degree of\par 
+          the requirements for the academic degree of\par
           Master of Engineering}\par
         % 标题
         \vspace{66pt}

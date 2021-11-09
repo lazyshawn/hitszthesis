@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
+### 
+> commit []()
+
+1. `fix`: 修复了中英文摘要右端未与页边框对齐的问题。
+1. `chore`: 修改文档结构，将论文正文放入 `main` 文件夹，方便用户使用 `git` 管理
+自己的论文内容。
+1. `perf`: 为博士文档新增单双面打印的模板选项`openany/openright`。
+1. `perf`: 新增公式宏包，支持空心体、手写体，并在`tutorial`中补充说明。
+
 ### 210913
-> commit
-[](
+> commit [](
 )
 
 1. `fix`: 设置单元格内表格命令`\tabincell`顶端对齐，修复英文页面专业换行时垂
@@ -16,23 +24,20 @@ All notable changes to this project will be documented in this file (Since 2021.
 1. `chore`: 脚本新增删除文件夹下的过程文件。
 
 ### 210717
-> commit
-[d671093](
+> commit [d671093](
 https://github.com/lazyshawn/hitszthesis/commit/d67109363c390f1e878b04f09d7f0b7a822a38dc)
 
 1. `fix`: 临时修复了硕士中文摘要页的版心变小的问题。
 
 ### 210625
-> commit
-[8cbeb0b](
+> commit [8cbeb0b](
 https://github.com/lazyshawn/hitszthesis/commit/8cbeb0b89c4d4e71a9271ab9bd902f9d3b1c8843)
 
 1. `fix`: 子图图注格式修改: 单行文本居中，多行文本左右边界10pt，第二行开始缩进
 到编号之后。
 
 ### 210610
-> commit
-[ec601d0](
+> commit [ec601d0](
 https://github.com/lazyshawn/hitszthesis/commit/ec601d04e81aafae2354148ec0c025871650c80d)
 
 日常维护。
@@ -40,8 +45,7 @@ https://github.com/lazyshawn/hitszthesis/commit/ec601d04e81aafae2354148ec0c02587
 1. 添加表格内换行命令 `\tabincell{}{}`。解决英文封面专业名称的换行问题。
 
 ### 210526
-> commit
-[2e2d98c](
+> commit [2e2d98c](
 https://github.com/lazyshawn/hitszthesis/commit/2e2d98c44593a708cafe084d5b48034308130d7b)
 
 日常维护。
@@ -51,10 +55,8 @@ https://github.com/lazyshawn/hitszthesis/commit/2e2d98c44593a708cafe084d5b480343
 
 
 ### 210524
-> commit
-[2724dc3](
-https://github.com/lazyshawn/hitszthesis/commit/2724dc38a52d08d6004452fb89a725092436e15a),
-[ba9bb24](
+> commit [2724dc3](
+https://github.com/lazyshawn/hitszthesis/commit/2724dc38a52d08d6004452fb89a725092436e15a), [ba9bb24](
 https://github.com/lazyshawn/hitszthesis/commit/ba9bb24fbc0630abaca8881610b13853ecd3fba0)
 
 根据学校新模板修改部分格式。

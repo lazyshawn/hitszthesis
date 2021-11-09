@@ -73,6 +73,7 @@ texClean () {
   rm -rf *.aux *.blg *.out *.bbl *.log *.toc *.entoc *.xdv\
     *.synctex.gz *.fdb_latexmk  *.fls
   rm -rf */*.aux */*.fdb_latexmk */*.log */*.fls
+  rm -rf */*/*.aux
 }
 
 # Check error

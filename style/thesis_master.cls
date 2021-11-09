@@ -24,9 +24,10 @@
 
 
 %===========================================================================%
-%->> Condition
+%->> Condition & Constant
 %===========================================================================%
 \newif\ifhitsz@midterm\hitsz@midtermfalse
+\def\hitsz@info@degree{硕士}
 
 
 %===========================================================================%
@@ -82,7 +83,7 @@
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
-\RequirePackage{amsmath}    % 数学公式
+\RequirePackage{amsmath,amsfonts,amssymb,bm}    % 数学公式
 \RequirePackage{tabularx}   % 表格自动列宽
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
@@ -198,7 +199,7 @@
 \fancypagestyle{fancy@front}{\fancyhf{}%
   \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
   \fancyhead[C]{\song\zihao{-5}
-  \hitsz@info@school 工学 \hitsz@info@master \hitsz@info@thesis}
+  \hitsz@info@school 工学\hitsz@info@degree \hitsz@info@thesis}
   % 双页眉线
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
@@ -212,7 +213,7 @@
     \fancyhead[C]{\song\zihao{-5} \hitsz@info@school （深圳）中期报告}
   \else
     \fancyhead[C]{\song\zihao{-5}
-    \hitsz@info@school 工学 \hitsz@info@master \hitsz@info@thesis}
+    \hitsz@info@school 工学\hitsz@info@degree \hitsz@info@thesis}
   \fi
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}
@@ -281,7 +282,7 @@
 	\par
   \vspace{\baselineskip}
   \noindent\makebox[4em][l]{\zihao{-4}\hitsz@cap@keywords}%
-  \begin{minipage}[t]{120mm}{
+  \begin{minipage}[t]{132mm}{
     \hitsz@token@keywords
   }
   \end{minipage}
@@ -296,7 +297,7 @@
 	\renewcommand{\hitsz@token@enkeywords}{#1}
   \par\vskip2ex
   \noindent\makebox[5em][l]{\zihao{-4}\hitsz@cap@enkeywords}%
-  \begin{minipage}[t]{120mm}{
+  \begin{minipage}[t]{128mm}{
     \hitsz@token@enkeywords
   }
   \end{minipage}
@@ -417,7 +418,7 @@
     {\hitsz@subsection[#2]{#3}}%
     \IfValueT{#4}{%
     % 此处需删除章节的空白
-    \addcontentsline{toe}{subsection}{%
+    \addcontentsline{entoc}{subsection}{%
       \protect\numberline{\csname thesubsection\endcsname}\ignorespaces #4}
     }
   }
@@ -661,8 +662,7 @@
 \DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
 % 设置图表搜索路径, 可以给图表文件夹取如下名字
 \graphicspath{
-  {contents/}{pics/}{imgs/}{main/pics/}
-  {front/pics/}{appendices/pics/}{back/pics/}
+  {contents/pics/}{contents/imgs/}{main/pics/}{main/imgs/}
 }
 \renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
 \renewcommand{\figurename}{图}
@@ -804,9 +804,9 @@
     % 标题
     \parbox[t][9.4cm][t]{\textwidth}{%
       \begin{center}
-        \zihao{-2}\song\textbf{工学\hitsz@info@master\hitsz@info@thesis}
+        \zihao{-2}\song\textbf{工学\hitsz@info@degree\hitsz@info@thesis}
         \par\vspace{42pt}
-        \zihao{2}\heiti{\hitsz@info@title}
+        \zihao{2}\heiti{\hitsz@info@titleA\par \hitsz@info@titleB}
       \end{center}
     }
   \end{center}
