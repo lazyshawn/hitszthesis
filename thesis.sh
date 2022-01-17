@@ -16,6 +16,19 @@
 #   https://github.com/lazyshawn/hitszthesis_master
 # ======================================================
 
+# Check update
+check_for_update() {
+  BRANCH=master
+  LOCAL=$(git log $BRANCH -n 1 --pretty=format:"%H")
+  REMOTE=$(git log remotes/origin/$BRANCH -n 1 --pretty=format:"%H")
+
+  if [ $LOCAL = $REMOTE ]; then
+      echo "This repo is Up-to-date."
+  else
+      echo "===> This repo need update."
+  fi
+}
+
 # Load demo
 loadDemo () {
   files=$(ls ./demo)
@@ -86,6 +99,7 @@ checkError () {
 
 
 # ====== main ======
+check_for_update;
 opts=$(getopt -o lsb::c -l load,save,build::,clean -- "$@")
 [ $? != 0 ] && exit 1
 eval set -- "$opts"   # 将$parameters设置为位置参数

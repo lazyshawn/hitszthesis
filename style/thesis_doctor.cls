@@ -82,9 +82,10 @@
 \RequirePackage{style/gbt7714}  % 参考文献标准: GB/T 7714 (包含natbib宏包)
 \RequirePackage{graphicx}   % 插入图片
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
+\RequirePackage[export]{adjustbox} % 子浮动体对齐
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
-\RequirePackage{amsmath,amsfonts,amssymb}    % 数学公式
+\RequirePackage{amsmath,amsfonts,amssymb,bm}    % 数学公式
 \RequirePackage{tabularx}   % 表格自动列宽
 \RequirePackage{tikzpagenodes}  % 页边框
 \RequirePackage{tikz}       % 绘图宏包
@@ -509,7 +510,7 @@
     {\hitsz@subsection[#2]{#3}}%
     \IfValueT{#4}{%
     % 此处需删除章节的空白
-    \addcontentsline{toe}{subsection}{%
+    \addcontentsline{entoc}{subsection}{%
       \protect\numberline{\csname thesubsection\endcsname}\ignorespaces #4}
     }
   }

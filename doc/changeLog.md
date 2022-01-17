@@ -11,7 +11,9 @@ All notable changes to this project will be documented in this file (Since 2021.
 1. `chore`: 修改文档结构，将论文正文放入 `main` 文件夹，方便用户使用 `git` 管理
 自己的论文内容。
 1. `perf`: 为博士文档新增单双面打印的模板选项`openany/openright`。
-1. `perf`: 新增公式宏包，支持空心体、手写体，并在`tutorial`中补充说明。
+1. `feat`: 新增公式宏包，支持空心体、手写体，并在`tutorial`中补充说明。
+1. `perf`: 子浮动体垂直对齐问题。
+1. `feat`: 新增检测模板版本的脚本命令。
 
 ### 210913
 > commit [](

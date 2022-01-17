@@ -81,6 +81,7 @@
 \RequirePackage{style/gbt7714}  % 参考文献标准: GB/T 7714 (包含natbib宏包)
 \RequirePackage{graphicx}   % 插入图片
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
+\RequirePackage[export]{adjustbox} % 子浮动体对齐
 \RequirePackage{booktabs}   % 表格线宏包
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath,amsfonts,amssymb,bm}    % 数学公式
