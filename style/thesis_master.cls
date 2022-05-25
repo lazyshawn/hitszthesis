@@ -34,7 +34,8 @@
 %->> Declare Options
 %===========================================================================%
 \PassOptionsToClass{openany}{book}%
-\PassOptionsToClass{twoside}{book}%
+% \PassOptionsToClass{twoside}{book}%
+\PassOptionsToClass{\CurrentOption}{book}
 \DeclareOption{midterm}{%
   \hitsz@midtermtrue
 }
@@ -663,7 +664,7 @@
 \DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
 % 设置图表搜索路径, 可以给图表文件夹取如下名字
 \graphicspath{
-  {contents/pics/}{contents/imgs/}{main/pics/}{main/imgs/}
+  {content/}{content/pics/}{content/imgs/}{main/pics/}{main/imgs/}
 }
 \renewcommand*{\thefigure}{\thechapter-\arabic{figure}}
 \renewcommand{\figurename}{图}

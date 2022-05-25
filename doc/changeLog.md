@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file (Since 2021.
 <!-- The format is based on Keep a [Changelog](https://keepachangelog.com/en/1.0.0/). -->
 
 ## ✨ Logs
+### 220525
+> commit[](
+)
+1. `fix`: 修复字体bug。新增公式字体`\mathcal`、`\mathscr`。
+
 ### 
 > commit []()
 

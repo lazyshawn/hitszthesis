@@ -28,8 +28,13 @@
 \RequirePackage[OT1]{fontenc}
 \RequirePackage{fontspec}
 \RequirePackage{xpatch}
-\RequirePackage{mathptmx}   % 使用Times new romans
-
+% ----- 公式字体
+% \mathcal: https://tex.stackexchange.com/a/562766
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% \mathscr: https://tex.stackexchange.com/a/551285
+\RequirePackage{mathrsfs}
+% Times New Romans: https://tex.stackexchange.com/a/211340
+\RequirePackage{mathptmx}
 
 %===========================================================================%
 %->> Font Settings
