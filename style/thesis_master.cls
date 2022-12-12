@@ -84,6 +84,7 @@
 \RequirePackage{subfig}     % 子浮动体宏包，包含|\caption|宏包
 \RequirePackage[export]{adjustbox} % 子浮动体对齐
 \RequirePackage{booktabs}   % 表格线宏包
+\RequirePackage[linesnumbered,boxed,ruled]{algorithm2e}
 \RequirePackage{pdfpages}   % 插入PDF页面
 \RequirePackage{amsmath,amsfonts,amssymb,bm}    % 数学公式
 \RequirePackage{tabularx}   % 表格自动列宽
@@ -576,6 +577,14 @@
 }{\endtabularx
   \par\vspace{5pt}
 }
+
+
+%===========================================================================%
+%->> Algorithm ENV
+%===========================================================================%
+\renewcommand{\algorithmcfname}{算法}
+\SetAlgoLined\SetArgSty{}
+\SetAlgoNlRelativeSize{-1.5}
 
 
 %===========================================================================%
