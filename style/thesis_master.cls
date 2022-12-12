@@ -201,8 +201,10 @@
 }
 \fancypagestyle{fancy@front}{\fancyhf{}%
   \fancyfoot[C]{\song\zihao{-5} -~\thepage~-}
-  \fancyhead[C]{\song\zihao{-5}
-  \hitsz@info@school 工学\hitsz@info@degree \hitsz@info@thesis}
+  \fancyhead[EC]{\song\zihao{-5} \leftmark}
+  \fancyhead[OC]{\song\zihao{-5} \rightmark}
+  % \fancyhead[C]{\song\zihao{-5}
+  % \hitsz@info@school 工学\hitsz@info@degree \hitsz@info@thesis}
   % 双页眉线
   \renewcommand{\headrule}{%
   \hrule width\headwidth height2.276pt \vspace{1pt}\hrule width\headwidth}

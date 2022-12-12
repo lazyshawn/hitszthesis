@@ -45,7 +45,7 @@ INTEGERS {
 
 FUNCTION {load.config}
 {
-  #0 'uppercase.name :=
+  #1 'uppercase.name :=
   #3 'max.num.authors :=
   #1 'sentence.case.title :=
   #0 'link.title :=
